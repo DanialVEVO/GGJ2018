@@ -11,6 +11,9 @@ public class CarControl : MonoBehaviour {
     float maxAcceleration = 2.0f;
 
     [SerializeField]
+    float maxBreakSpeed = 2.0f;
+
+    [SerializeField]
     float turnSpeed = 2.0f;
 
     [SerializeField]
@@ -21,6 +24,8 @@ public class CarControl : MonoBehaviour {
 
     Quaternion toRotation = new Quaternion();
     //Vector3 adjustDir = Vector3.zero;
+
+    float TimeNotMovingForward = 0.0f;
 
 
     // Use this for initialization
@@ -35,6 +40,15 @@ public class CarControl : MonoBehaviour {
 
 
         toRotation = GetComponent<Rigidbody>().rotation;
+
+        Vector3 localVelocity = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
+
+        if (localVelocity.z < 0.2f)
+        {
+            TimeNotMovingForward += Time.fixedDeltaTime;
+        }
+        else if (TimeNotMovingForward != 0.0f)
+            TimeNotMovingForward = 0.0f;
 
         //Field of view adjustment for extra sppeeeed.
         //float percentageFOV = GetComponent<Rigidbody>().velocity.magnitude / maxSpeed;
@@ -59,9 +73,9 @@ public class CarControl : MonoBehaviour {
             else
                 rotationQuantity = new Vector3(0.0f, Input.GetAxis("LeftX"), 0.0f) * turnSpeed * Time.fixedDeltaTime;
 
-            Vector3 localSpeed = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
+            //Vector3 localSpeed = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
 
-            if (localSpeed.z < 0)
+            if (localVelocity.z < 0)
                 rotationQuantity = -rotationQuantity; 
 
             Quaternion deltaRotation = Quaternion.Euler(rotationQuantity);
@@ -89,7 +103,7 @@ public class CarControl : MonoBehaviour {
         }
 
         //acceleration
-        if (Input.GetAxis("RightBump") > 0.1f && Input.GetAxis("LeftBump") > 0.1f)
+        if (Input.GetAxis("RightBump") > 0.03f && Input.GetAxis("LeftBump") > 0.03f)
         {
             return;
         }
@@ -97,8 +111,20 @@ public class CarControl : MonoBehaviour {
         {
             GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * maxAcceleration * Input.GetAxis("RightBump") * Time.fixedDeltaTime);
         }
-        else if (Input.GetAxis("LeftBump") > 0 && GetComponent<Rigidbody>().velocity.magnitude <= maxSpeed/2)
-            GetComponent<Rigidbody>().AddRelativeForce(-Vector3.forward * maxAcceleration * Input.GetAxis("LeftBump") * Time.fixedDeltaTime);
+        else if (Input.GetAxis("LeftBump") > 0)
+        {
+            
+
+            //brake when having forwardspeed, speed at all (to keep sliding)
+            if (localVelocity.z > 0)
+                GetComponent<Rigidbody>().AddRelativeForce(-Vector3.forward * maxBreakSpeed * Input.GetAxis("LeftBump") * Time.fixedDeltaTime);
+            else if (TimeNotMovingForward > 0.5f)
+            {
+                GetComponent<Rigidbody>().AddRelativeForce(-Vector3.forward * maxAcceleration * Input.GetAxis("LeftBump") * Time.fixedDeltaTime);
+            }
+
+        }
+            
 
 
     }

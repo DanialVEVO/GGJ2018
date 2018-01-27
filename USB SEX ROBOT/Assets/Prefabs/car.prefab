@@ -832,6 +832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 25
   maxAcceleration: 1000
+  maxBreakSpeed: 10
   turnSpeed: 70
   turnAdjustSpeed: 30
   areaFOV: {x: 45, y: 60}

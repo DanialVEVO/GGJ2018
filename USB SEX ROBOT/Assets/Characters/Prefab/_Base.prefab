@@ -21,8 +21,10 @@ GameObject:
   - component: {fileID: 4301246830844962}
   - component: {fileID: 136074228567130496}
   - component: {fileID: 54232427883570100}
+  - component: {fileID: 114134732775260492}
+  - component: {fileID: 114719677023350664}
   m_Layer: 0
-  m_Name: Base
+  m_Name: _Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,6 +118,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &114134732775260492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1119779153259380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f84254134b54c4d9c37fa584b618a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScreamSoundList: []
+  ImpactSoundList: []
+  sex: 0
+  age: 0
+  height: 0
+  highValueTarget: 0
+  suspect: 1
+  score: 0
+  clothesColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &114719677023350664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1119779153259380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f00e7bd61562354eaf189c28851c77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSpeed: 2
+  panicSpeed: 4
+  car: {fileID: 0}
+  initialPanic: 0
 --- !u!136 &136074228567130496
 CapsuleCollider:
   m_ObjectHideFlags: 1

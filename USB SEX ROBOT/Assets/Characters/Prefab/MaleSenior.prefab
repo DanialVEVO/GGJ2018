@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 136929646331310338}
   - component: {fileID: 54266283889234828}
   - component: {fileID: 114643198322632578}
+  - component: {fileID: 114984735389133858}
   m_Layer: 0
   m_Name: MaleSenior
   m_TagString: Untagged
@@ -68,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314497521591382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 5.12, z: 2.86}
+  m_LocalPosition: {x: -5.35, y: 5.12, z: 2.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4625944523653086}
@@ -139,11 +140,27 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 98bc314170bda8e499b7df9fe7c034ad, type: 3}
   - {fileID: 8300000, guid: 4114abd8581b3684d84d2dc1cd48c627, type: 3}
   sex: 0
-  age: 3
+  age: 4
   height: 1
   highValueTarget: 0
   suspect: 1
+  score: 0
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &114984735389133858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1314497521591382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f00e7bd61562354eaf189c28851c77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSpeed: 2
+  panicSpeed: 4
+  car: {fileID: 0}
+  initialPanic: 0
 --- !u!136 &136929646331310338
 CapsuleCollider:
   m_ObjectHideFlags: 1

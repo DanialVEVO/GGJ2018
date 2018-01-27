@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 136670509722689454}
   - component: {fileID: 54491190248632588}
   - component: {fileID: 114564895998244684}
+  - component: {fileID: 114502289401508470}
   m_Layer: 0
   m_Name: AsianBussinessMan
   m_TagString: Untagged
@@ -94,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1556034507110882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.2, z: 0.4389999}
+  m_LocalPosition: {x: -0.17, y: 5.13, z: 0.4389999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4580238095421342}
@@ -117,6 +118,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &114502289401508470
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556034507110882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f00e7bd61562354eaf189c28851c77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSpeed: 2
+  panicSpeed: 4
+  car: {fileID: 0}
+  initialPanic: 0
 --- !u!114 &114564895998244684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,6 +159,7 @@ MonoBehaviour:
   height: 1
   highValueTarget: 0
   suspect: 1
+  score: 0
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!136 &136670509722689454
 CapsuleCollider:

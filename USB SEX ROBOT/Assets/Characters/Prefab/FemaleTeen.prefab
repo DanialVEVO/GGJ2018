@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 136814740575388950}
   - component: {fileID: 54711993163299736}
   - component: {fileID: 114419298268662592}
+  - component: {fileID: 114113420357997894}
   m_Layer: 0
   m_Name: FemaleTeen
   m_TagString: Untagged
@@ -68,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1359054952054312}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.09, y: 0, z: 0}
   m_LocalScale: {x: 0.19553782, y: 0.19553779, z: 0.19553779}
   m_Children: []
   m_Father: {fileID: 4453233101079126}
@@ -94,8 +95,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1141993860229116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 4.657, z: 3}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalPosition: {x: 2.973, y: 4.91, z: 3}
+  m_LocalScale: {x: 0.8284641, y: 0.828464, z: 0.828464}
   m_Children:
   - {fileID: 4427596919109740}
   - {fileID: 4088876265716758}
@@ -117,6 +118,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &114113420357997894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1141993860229116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f00e7bd61562354eaf189c28851c77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSpeed: 2
+  panicSpeed: 4
+  car: {fileID: 0}
+  initialPanic: 0
 --- !u!114 &114419298268662592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,6 +165,7 @@ MonoBehaviour:
   height: 1
   highValueTarget: 0
   suspect: 1
+  score: 0
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!136 &136814740575388950
 CapsuleCollider:

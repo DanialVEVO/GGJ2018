@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 136127175162115712}
   - component: {fileID: 54831438063616168}
   - component: {fileID: 114143911295262172}
+  - component: {fileID: 114978674464805264}
   m_Layer: 0
   m_Name: MaleTeen
   m_TagString: Untagged
@@ -94,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216810049406108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.994, y: 4.989, z: 2.86}
+  m_LocalPosition: {x: -7.17, y: 4.989, z: 2.86}
   m_LocalScale: {x: 0.8402524, y: 0.84025246, z: 0.84025246}
   m_Children:
   - {fileID: 4396938275154648}
@@ -139,10 +140,26 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4114abd8581b3684d84d2dc1cd48c627, type: 3}
   sex: 0
   age: 2
-  height: 2
+  height: 1
   highValueTarget: 0
   suspect: 1
+  score: 0
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &114978674464805264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1216810049406108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f00e7bd61562354eaf189c28851c77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSpeed: 2
+  panicSpeed: 4
+  car: {fileID: 0}
+  initialPanic: 0
 --- !u!136 &136127175162115712
 CapsuleCollider:
   m_ObjectHideFlags: 1

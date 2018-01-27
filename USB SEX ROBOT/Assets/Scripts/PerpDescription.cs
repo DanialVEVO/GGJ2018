@@ -61,6 +61,7 @@ public class PerpDescription : MonoBehaviour
     public Age age;
     public Height height;
     public bool highValueTarget;
+    public bool suspect = true;
 
     // Optionally authorable
     public Color clothesColor = Color.clear;

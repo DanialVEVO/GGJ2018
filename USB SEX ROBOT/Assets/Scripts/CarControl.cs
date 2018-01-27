@@ -1,0 +1,120 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CarControl : MonoBehaviour {
+
+    [SerializeField]
+    float maxSpeed = 20.0f;
+
+    [SerializeField]
+    float maxAcceleration = 2.0f;
+
+    [SerializeField]
+    float turnSpeed = 2.0f;
+
+    [SerializeField]
+    float turnAdjustSpeed = 2.0f;
+
+    [SerializeField]
+    Vector2 areaFOV = new Vector2(50, 70);
+
+    Quaternion toRotation = new Quaternion();
+    //Vector3 adjustDir = Vector3.zero;
+
+
+    // Use this for initialization
+    void Start () {
+
+        toRotation = GetComponent<Rigidbody>().rotation;
+
+    }
+	
+	// Update is called once per frame
+	void FixedUpdate () {
+
+
+        toRotation = GetComponent<Rigidbody>().rotation;
+
+        //Field of view adjustment for extra sppeeeed.
+        //float percentageFOV = GetComponent<Rigidbody>().velocity.magnitude / maxSpeed;
+        float percentageFOV = 0; 
+
+        if (GetComponent<Rigidbody>().velocity.magnitude > maxSpeed / 4)
+            percentageFOV = (GetComponent<Rigidbody>().velocity.magnitude - maxSpeed / 4) / (maxSpeed * 0.75f);
+
+        GetComponentInChildren<Camera>().fieldOfView = areaFOV.x + (areaFOV.y - areaFOV.x) * percentageFOV;
+
+        //turning
+        if (Input.GetAxis("LeftX") != 0 && GetComponent<Rigidbody>().velocity.magnitude > 0.1f)
+        {
+
+            Vector3 rotationQuantity = Vector3.zero;
+
+            if (GetComponent<Rigidbody>().velocity.magnitude < maxSpeed / 4)
+            {
+                float turnLimit = GetComponent<Rigidbody>().velocity.magnitude / (maxSpeed / 4);
+                rotationQuantity = new Vector3(0.0f, Input.GetAxis("LeftX"), 0.0f) * turnLimit * turnSpeed * Time.fixedDeltaTime;
+            }
+            else
+                rotationQuantity = new Vector3(0.0f, Input.GetAxis("LeftX"), 0.0f) * turnSpeed * Time.fixedDeltaTime;
+
+            Vector3 localSpeed = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
+
+            if (localSpeed.z < 0)
+                rotationQuantity = -rotationQuantity; 
+
+            Quaternion deltaRotation = Quaternion.Euler(rotationQuantity);
+            toRotation = GetComponent<Rigidbody>().rotation * deltaRotation;
+        }
+
+        //dont tip the car
+
+        if (toRotation.eulerAngles.x > 0.01f || toRotation.eulerAngles.z > 0.01f)
+            toRotation = Quaternion.Euler(0, toRotation.eulerAngles.y, 0);
+
+        if (toRotation != GetComponent<Rigidbody>().rotation)
+            GetComponent<Rigidbody>().MoveRotation(toRotation);
+
+
+
+        
+        //adjust force to rotation
+        if (GetComponent<Rigidbody>().velocity.magnitude > 0.1f && Vector3.Angle(transform.forward, GetComponent<Rigidbody>().velocity) > 0.1f)
+        {
+            Vector3 adjustDir = -Vector3.ProjectOnPlane(GetComponent<Rigidbody>().velocity, transform.forward);
+
+            GetComponent<Rigidbody>().AddForce(adjustDir * turnAdjustSpeed * Time.fixedDeltaTime);
+
+        }
+
+        //acceleration
+        if (Input.GetAxis("RightBump") > 0.1f && Input.GetAxis("LeftBump") > 0.1f)
+        {
+            return;
+        }
+        else if (Input.GetAxis("RightBump") > 0 && GetComponent<Rigidbody>().velocity.magnitude <= maxSpeed)
+        {
+            GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * maxAcceleration * Input.GetAxis("RightBump") * Time.fixedDeltaTime);
+        }
+        else if (Input.GetAxis("LeftBump") > 0 && GetComponent<Rigidbody>().velocity.magnitude <= maxSpeed/2)
+            GetComponent<Rigidbody>().AddRelativeForce(-Vector3.forward * maxAcceleration * Input.GetAxis("LeftBump") * Time.fixedDeltaTime);
+
+
+    }
+    
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.black;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * 10);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + GetComponent<Rigidbody>().velocity);
+
+        Vector3 reflection = -Vector3.ProjectOnPlane(GetComponent<Rigidbody>().velocity, transform.forward);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + reflection);
+    }
+}

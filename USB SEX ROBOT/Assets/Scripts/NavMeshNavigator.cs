@@ -7,14 +7,19 @@ public class NavMeshNavigator : MonoBehaviour
 {
     public static float maxDistance = 99.0f;
     public static float minDistanceNextPoint = 20.0f;
+    public static float maxPathTime = 45.0f;
+
     public float baseSpeed = 2.0f;
     public float panicSpeed = 4.0f;
 
-    private Vector3 targetPosition = new Vector3();
     public GameObject car = null;
 
     // Debug vals
     public bool initialPanic = false;
+
+    // Privates
+    private Vector3 targetPosition = new Vector3();
+    private float lastPickTime = Time.time;
 
     public bool Panicked
     {
@@ -68,7 +73,8 @@ public class NavMeshNavigator : MonoBehaviour
 
         float minDistance = minDistanceNextPoint * (Panicked ? 2.0f : 1.0f);
 
-        while (true)
+        // Max 100 iterations
+        for (int i = 0; i < 100; i++)
         {
             Vector3 randomDirection = Random.insideUnitSphere * maxDistance;
             randomDirection += transform.position;
@@ -98,13 +104,15 @@ public class NavMeshNavigator : MonoBehaviour
             break;
         }
 
+        lastPickTime = Time.time;
         navMeshAgent.destination = targetPosition;
         navMeshAgent.speed = Panicked ? panicSpeed : baseSpeed;
     }
 
     private void CheckIfNewPointRequired()
     {
-        if (Vector3.Distance(this.gameObject.transform.position, targetPosition) < 3.0f)
+        if (Vector3.Distance(this.gameObject.transform.position, targetPosition) < 5.0f ||
+            (Time.time - lastPickTime) > maxPathTime)
             PickRandomPoint();
     }
 }

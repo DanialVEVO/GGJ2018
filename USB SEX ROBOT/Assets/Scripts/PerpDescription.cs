@@ -62,6 +62,7 @@ public class PerpDescription : MonoBehaviour
     public Height height;
     public bool highValueTarget;
     public bool suspect = true;
+    public int score = 0;
 
     // Optionally authorable
     public Color clothesColor = Color.clear;

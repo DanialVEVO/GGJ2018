@@ -27,6 +27,9 @@ public class PerpDescription : MonoBehaviour
         Tall
     };
 
+    public AudioClip[] ScreamSoundList;
+    public AudioClip[] ImpactSoundList;
+
     private static Color[] PossibleColors =
     {
         Color.black,
@@ -103,5 +106,23 @@ public class PerpDescription : MonoBehaviour
     public string GetColor()
     {
         return clothesColorStr;
+    }
+
+    public AudioClip GetScreamSound()
+    {
+        if (ScreamSoundList.Length == 0)
+            return null;
+
+        int index = Random.Range(0, ScreamSoundList.Length);
+        return ScreamSoundList[index];
+    }
+
+    public AudioClip GetImpactSound()
+    {
+        if (ImpactSoundList.Length == 0)
+            return null;
+
+        int index = Random.Range(0, ImpactSoundList.Length);
+        return ImpactSoundList[index];
     }
 }

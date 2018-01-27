@@ -172,10 +172,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f84254134b54c4d9c37fa584b618a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreamSoundList: []
+  ImpactSoundList: []
   sex: 0
   age: 0
   height: 0
   highValueTarget: 0
+  suspect: 1
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!208 &1736944
 NavMeshObstacle:
@@ -415,10 +418,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f84254134b54c4d9c37fa584b618a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreamSoundList: []
+  ImpactSoundList: []
   sex: 0
   age: 0
   height: 0
   highValueTarget: 0
+  suspect: 1
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!208 &285651860
 NavMeshObstacle:
@@ -628,10 +634,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f84254134b54c4d9c37fa584b618a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreamSoundList: []
+  ImpactSoundList: []
   sex: 0
   age: 0
   height: 0
   highValueTarget: 0
+  suspect: 1
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!208 &498815208
 NavMeshObstacle:
@@ -1294,10 +1303,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f84254134b54c4d9c37fa584b618a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreamSoundList: []
+  ImpactSoundList: []
   sex: 0
   age: 0
   height: 0
   highValueTarget: 0
+  suspect: 1
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!208 &1207734778
 NavMeshObstacle:
@@ -1594,10 +1606,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f84254134b54c4d9c37fa584b618a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreamSoundList: []
+  ImpactSoundList: []
   sex: 0
   age: 0
   height: 0
   highValueTarget: 0
+  suspect: 1
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!208 &1288707893
 NavMeshObstacle:
@@ -2699,10 +2714,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f84254134b54c4d9c37fa584b618a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreamSoundList: []
+  ImpactSoundList: []
   sex: 0
   age: 0
   height: 0
   highValueTarget: 0
+  suspect: 1
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!54 &1757309733
 Rigidbody:
@@ -2790,10 +2808,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f84254134b54c4d9c37fa584b618a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreamSoundList: []
+  ImpactSoundList: []
   sex: 0
   age: 0
   height: 0
   highValueTarget: 0
+  suspect: 1
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!208 &1843536656
 NavMeshObstacle:
@@ -3004,10 +3025,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f84254134b54c4d9c37fa584b618a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreamSoundList: []
+  ImpactSoundList: []
   sex: 0
   age: 0
   height: 0
   highValueTarget: 0
+  suspect: 1
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!208 &1981619616
 NavMeshObstacle:
@@ -3218,10 +3242,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f84254134b54c4d9c37fa584b618a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreamSoundList: []
+  ImpactSoundList: []
   sex: 0
   age: 0
   height: 0
   highValueTarget: 0
+  suspect: 1
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!208 &2063838531
 NavMeshObstacle:

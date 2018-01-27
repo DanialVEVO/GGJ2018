@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4708660714720202}
   - component: {fileID: 136127175162115712}
   - component: {fileID: 54831438063616168}
+  - component: {fileID: 114143911295262172}
   m_Layer: 0
   m_Name: MaleTeen
   m_TagString: Untagged
@@ -116,6 +117,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &114143911295262172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1216810049406108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f84254134b54c4d9c37fa584b618a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScreamSoundList:
+  - {fileID: 8300000, guid: 0c21f4a1d9d6012498014962d58a2463, type: 3}
+  - {fileID: 8300000, guid: d872ce4bf4afba84aaa2a11739502c4b, type: 3}
+  ImpactSoundList:
+  - {fileID: 8300000, guid: 5696ee8c9c9916743a535147f0730a26, type: 3}
+  - {fileID: 8300000, guid: 5166f67553a7e9942898dfb4bafd0a60, type: 3}
+  - {fileID: 8300000, guid: edf3af435d5dd6b4eb416b09529cfcda, type: 3}
+  - {fileID: 8300000, guid: 98bc314170bda8e499b7df9fe7c034ad, type: 3}
+  - {fileID: 8300000, guid: 4114abd8581b3684d84d2dc1cd48c627, type: 3}
+  sex: 0
+  age: 2
+  height: 2
+  highValueTarget: 0
+  suspect: 1
+  clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!136 &136127175162115712
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4819920519520362}
   - component: {fileID: 136704836406765130}
   - component: {fileID: 54453434159494882}
-  - component: {fileID: 33115299445064720}
+  - component: {fileID: 114934859953519952}
   m_Layer: 0
   m_Name: MaleBaby
   m_TagString: Untagged
@@ -102,13 +102,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &33115299445064720
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1034509626740350}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54453434159494882
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -124,6 +117,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &114934859953519952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1034509626740350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f84254134b54c4d9c37fa584b618a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScreamSoundList: []
+  ImpactSoundList:
+  - {fileID: 8300000, guid: 5696ee8c9c9916743a535147f0730a26, type: 3}
+  - {fileID: 8300000, guid: 5166f67553a7e9942898dfb4bafd0a60, type: 3}
+  - {fileID: 8300000, guid: edf3af435d5dd6b4eb416b09529cfcda, type: 3}
+  - {fileID: 8300000, guid: 98bc314170bda8e499b7df9fe7c034ad, type: 3}
+  - {fileID: 8300000, guid: 4114abd8581b3684d84d2dc1cd48c627, type: 3}
+  sex: 0
+  age: 0
+  height: 0
+  highValueTarget: 0
+  suspect: 0
+  clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!136 &136704836406765130
 CapsuleCollider:
   m_ObjectHideFlags: 1

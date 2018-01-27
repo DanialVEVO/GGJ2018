@@ -7,8 +7,8 @@ public class NavMeshNavigator : MonoBehaviour
 {
     public static float maxDistance = 99.0f;
     public static float minDistanceNextPoint = 20.0f;
-    public static float baseSpeed = 2.0f;
-    public static float panicSpeed = 4.0f;
+    public float baseSpeed = 2.0f;
+    public float panicSpeed = 4.0f;
 
     private Vector3 targetPosition = new Vector3();
     public GameObject car = null;
@@ -74,7 +74,7 @@ public class NavMeshNavigator : MonoBehaviour
             randomDirection += transform.position;
 
             NavMeshHit hit;
-            NavMesh.SamplePosition(randomDirection, out hit, 2.0f, NavMesh.AllAreas);
+            NavMesh.SamplePosition(randomDirection, out hit, 2.0f, navMeshAgent.areaMask);
 
             if ((hit.mask & navMeshAgent.areaMask) == 0)
                 continue;

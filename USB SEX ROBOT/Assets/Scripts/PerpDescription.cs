@@ -73,8 +73,6 @@ public class PerpDescription : MonoBehaviour
 
         if (clothesColor == Color.clear)
             PickRandomColor();
-
-        string test = GetColor();
     }
 	
 	// Update is called once per frame

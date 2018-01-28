@@ -164,7 +164,7 @@ MonoBehaviour:
   highValueTarget: 0
   suspect: 1
   score: 1675
-  penalty: 555
+  penalty: 15
   isTarget: 0
   timeLeft: -1
   explosionRadius: 10

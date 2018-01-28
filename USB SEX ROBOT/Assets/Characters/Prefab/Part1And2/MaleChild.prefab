@@ -145,7 +145,7 @@ MonoBehaviour:
   height: 0
   highValueTarget: 0
   suspect: 1
-  score: 1000
+  score: 2000
   penalty: 333
   isTarget: 0
   timeLeft: -1

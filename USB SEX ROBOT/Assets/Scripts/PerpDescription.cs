@@ -90,6 +90,8 @@ public class PerpDescription : MonoBehaviour
 
     private void UpdateSprites()
     {
+        NavMeshNavigator navi = this.gameObject.GetComponentInChildren<NavMeshNavigator>();
+
         float dotResult = Quaternion.Dot(Camera.main.transform.rotation, this.gameObject.transform.rotation);
 
         bool backVisible = dotResult < 0;
@@ -108,7 +110,8 @@ public class PerpDescription : MonoBehaviour
                 if (suspect)
                     spriteRenderer.material.SetColor("_MaskColor", clothesColor);
 
-                gameObj.transform.rotation = Camera.main.transform.rotation;
+                if (!navi.isDead)
+                    gameObj.transform.rotation = Camera.main.transform.rotation;
             }
             else if (gameObj.name == "Back")
             {
@@ -119,7 +122,8 @@ public class PerpDescription : MonoBehaviour
                 if (suspect)
                     spriteRenderer.material.SetColor("_MaskColor", clothesColor);
 
-                gameObj.transform.rotation = Camera.main.transform.rotation;
+                if (!navi.isDead)
+                    gameObj.transform.rotation = Camera.main.transform.rotation;
             }
         }
     }

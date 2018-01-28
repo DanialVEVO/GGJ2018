@@ -12,10 +12,12 @@ public class NavMeshNavigator : MonoBehaviour
     public static float exitPanicModeRadius = 25.0f;
     public static float carPanicRadius = 20.0f;
     public static float carMinSpeed = 5.0f;
+    public static float carMinHitSpeed = 12.0f;
 
     public float baseSpeed = 1.5f;
     public float panicSpeed = 3.0f;
     public bool isDead = false;
+    public GameObject roseObject = null;
     
     public static List<NavMeshNavigator> listOfNavigators = new List<NavMeshNavigator>();
 
@@ -67,8 +69,32 @@ public class NavMeshNavigator : MonoBehaviour
 
     private bool isPanicked = false;
 
-	// Use this for initialization
-	void Awake()
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (isDead)
+            return;
+
+        if (collision.gameObject.tag == "Car")
+        {
+            Vector3 carVelocity = collision.relativeVelocity;
+            float carForce = Vector3.Dot(carVelocity, carVelocity);
+
+            if (carForce >= carMinHitSpeed)
+            {
+                isDead = true;
+                Destroy(this.gameObject, 1.0f);
+
+                GameObject roses = Instantiate(roseObject, this.gameObject.transform);
+
+                Rigidbody rigidBody = this.gameObject.GetComponent<Rigidbody>();
+                rigidBody.AddForce(new Vector3(0, 1, 0), ForceMode.Impulse);
+                rigidBody.AddRelativeTorque(new Vector3(1, 1, 1), ForceMode.Acceleration);
+            }
+        }
+    }
+
+    // Use this for initialization
+    void Awake()
     {
         lastPickTime = Time.time;
         audioSource = this.gameObject.AddComponent<AudioSource>();
@@ -121,7 +147,6 @@ public class NavMeshNavigator : MonoBehaviour
                     bool gotHit = NavMesh.SamplePosition(car.transform.position, out hit, 2.0f, NavMesh.AllAreas);
 
                     Vector3 carVelocity = car.GetComponent<Rigidbody>().velocity;
-                    carVelocity.y = 0.0f;
 
                     if (gotHit && carDistance <= carPanicRadius && Vector3.Dot(carVelocity, carVelocity) >= carMinSpeed)
                     {
@@ -143,6 +168,8 @@ public class NavMeshNavigator : MonoBehaviour
     {
         if (isDead)
         {
+            GameObject roses = Instantiate(roseObject, this.gameObject.transform.position, Quaternion.identity);
+
             lock (listOfNavigators)
             {
                 listOfNavigators.Remove(this);
@@ -150,6 +177,9 @@ public class NavMeshNavigator : MonoBehaviour
                 // Put others in panic mode
                 foreach (NavMeshNavigator navigator in listOfNavigators)
                 {
+                    if (navigator == null)
+                        continue;
+
                     if (Vector3.Distance(this.gameObject.transform.position, navigator.gameObject.transform.position) <= deathRadius)
                         navigator.Panicked = true;
                 }

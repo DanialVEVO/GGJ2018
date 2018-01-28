@@ -27,6 +27,9 @@ public class PerpDescription : MonoBehaviour
         Tall
     };
 
+    public AudioClip[] ScreamSoundList;
+    public AudioClip[] ImpactSoundList;
+
     private static Color[] PossibleColors =
     {
         Color.black,
@@ -58,6 +61,10 @@ public class PerpDescription : MonoBehaviour
     public Age age;
     public Height height;
     public bool highValueTarget;
+    public bool suspect = true;
+    public int score = 0;
+    public int penalty = 0;
+    public bool isTarget = false;
 
     // Optionally authorable
     public Color clothesColor = Color.clear;
@@ -66,15 +73,13 @@ public class PerpDescription : MonoBehaviour
     // Privates
     private LocationInfo locationInfo = null;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+	void Awake ()
     {
         locationInfo = this.gameObject.AddComponent<LocationInfo>();
 
         if (clothesColor == Color.clear)
             PickRandomColor();
-
-        string test = GetColor();
     }
 	
 	// Update is called once per frame
@@ -92,9 +97,9 @@ public class PerpDescription : MonoBehaviour
         clothesColorStr = PossibleColorsStr[index];
     }
 
-    public Hash128 GetPerpHash(object customData)
+    public string GetPerpHash(string customData)
     {
-        return Hash128.Parse(sex.ToString() + age.ToString() + clothesColor.ToString() + height.ToString() + (customData != null ? customData.ToString() : ""));
+        return (sex.ToString() + age.ToString() + clothesColor.ToString() + height.ToString() + (customData != null ? customData : ""));
     }
 
     public string GetLocation()
@@ -105,5 +110,23 @@ public class PerpDescription : MonoBehaviour
     public string GetColor()
     {
         return clothesColorStr;
+    }
+
+    public AudioClip GetScreamSound()
+    {
+        if (ScreamSoundList.Length == 0)
+            return null;
+
+        int index = Random.Range(0, ScreamSoundList.Length);
+        return ScreamSoundList[index];
+    }
+
+    public AudioClip GetImpactSound()
+    {
+        if (ImpactSoundList.Length == 0)
+            return null;
+
+        int index = Random.Range(0, ImpactSoundList.Length);
+        return ImpactSoundList[index];
     }
 }

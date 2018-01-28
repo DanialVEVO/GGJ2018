@@ -22,6 +22,11 @@ public class PointSystem : MonoBehaviour {
     [SerializeField]
     int startingBudget = 1500;
 
+    [SerializeField]
+    float totalGameTime = 60.0f;
+
+    float gameTime = 0.0f;
+
     int budget = 0;
 
     string hintMessage = "";
@@ -53,6 +58,9 @@ public class PointSystem : MonoBehaviour {
 
     void RandomMessage()
     {
+        if (suspect == null)
+            return;
+
         textWolk.SetActive(true);
         newStringTimer = timeBetweenMessages + timeMessageVisibility; 
 

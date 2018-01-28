@@ -85,8 +85,38 @@ public class PerpDescription : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		
+        UpdateSprites();	
 	}
+
+    private void UpdateSprites()
+    {
+        float dotResult = Quaternion.Dot(Camera.main.transform.rotation, this.gameObject.transform.rotation);
+
+        bool backVisible = dotResult < 0;
+        bool frontVisible = !backVisible;
+
+        for (int i = 0; i < this.gameObject.transform.childCount; i++)
+        {
+            GameObject gameObj = this.gameObject.transform.GetChild(i).gameObject;
+
+            if (gameObj.name == "Front")
+            {
+                SpriteRenderer spriteRenderer = gameObj.GetComponent<SpriteRenderer>();
+                spriteRenderer.enabled = frontVisible;
+                spriteRenderer.transform.localPosition = new Vector3(0, Mathf.PingPong(Time.time * 30.0f, 3) * 0.03f, 0);
+
+                gameObj.transform.rotation = Camera.main.transform.rotation;
+            }
+            else if (gameObj.name == "Back")
+            {
+                SpriteRenderer spriteRenderer = gameObj.GetComponent<SpriteRenderer>();
+                spriteRenderer.enabled = backVisible;
+                spriteRenderer.transform.localPosition = new Vector3(0, Mathf.PingPong(Time.time * 30.0f, 3) * 0.03f, 0);
+
+                gameObj.transform.rotation = Camera.main.transform.rotation;
+            }
+        }
+    }
 
     // Utility functions
     private void PickRandomColor()

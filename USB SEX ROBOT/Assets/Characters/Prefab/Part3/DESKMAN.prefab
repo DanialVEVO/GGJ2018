@@ -130,8 +130,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f84254134b54c4d9c37fa584b618a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScreamSoundList: []
-  ImpactSoundList: []
+  ScreamSoundList:
+  - {fileID: 8300000, guid: a52bca8894f94ec40a22806a0cc337d8, type: 3}
+  - {fileID: 8300000, guid: eb511f03dff27f34f821de4de2762d08, type: 3}
+  - {fileID: 8300000, guid: 0c21f4a1d9d6012498014962d58a2463, type: 3}
+  ImpactSoundList:
+  - {fileID: 8300000, guid: 5696ee8c9c9916743a535147f0730a26, type: 3}
+  - {fileID: 8300000, guid: 5166f67553a7e9942898dfb4bafd0a60, type: 3}
+  - {fileID: 8300000, guid: edf3af435d5dd6b4eb416b09529cfcda, type: 3}
+  - {fileID: 8300000, guid: 98bc314170bda8e499b7df9fe7c034ad, type: 3}
+  - {fileID: 8300000, guid: 4114abd8581b3684d84d2dc1cd48c627, type: 3}
+  - {fileID: 8300000, guid: 28df04aaf844a984eaf94624b97ea206, type: 3}
   sex: 0
   age: 3
   height: 0

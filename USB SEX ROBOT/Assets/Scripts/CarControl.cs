@@ -22,10 +22,21 @@ public class CarControl : MonoBehaviour {
     [SerializeField]
     Vector2 areaFOV = new Vector2(50, 70);
 
+    [SerializeField]
+    GameObject SteeringWHeel;
+
+    [SerializeField]
+    float steeringWheelSpeed = 20.0f;
+
+    [SerializeField]
+    Vector2 SteeringWheelClip = new Vector2(-20.0f, 20.0f);
+
     Quaternion toRotation = new Quaternion();
     //Vector3 adjustDir = Vector3.zero;
 
     float TimeNotMovingForward = 0.0f;
+
+    float SteeringWheelRotation = 0.0f;
 
 
     // Use this for initialization
@@ -60,7 +71,7 @@ public class CarControl : MonoBehaviour {
         GetComponentInChildren<Camera>().fieldOfView = areaFOV.x + (areaFOV.y - areaFOV.x) * percentageFOV;
 
         //turning
-        if (Input.GetAxis("LeftX") != 0 && GetComponent<Rigidbody>().velocity.magnitude > 0.1f)
+        if (Input.GetAxis("LeftX") !=0 && GetComponent<Rigidbody>().velocity.magnitude > 0.1f)
         {
 
             Vector3 rotationQuantity = Vector3.zero;
@@ -73,14 +84,52 @@ public class CarControl : MonoBehaviour {
             else
                 rotationQuantity = new Vector3(0.0f, Input.GetAxis("LeftX"), 0.0f) * turnSpeed * Time.fixedDeltaTime;
 
-            //Vector3 localSpeed = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
-
+            
             if (localVelocity.z < 0)
-                rotationQuantity = -rotationQuantity; 
+                rotationQuantity = -rotationQuantity;
 
             Quaternion deltaRotation = Quaternion.Euler(rotationQuantity);
             toRotation = GetComponent<Rigidbody>().rotation * deltaRotation;
+
+            if (localVelocity.z < 0)
+                rotationQuantity = -rotationQuantity;
+
+
+            //steering wheel turn
+            if (rotationQuantity.y > 0 && SteeringWheelRotation > SteeringWheelClip.y)
+            {
+                SteeringWHeel.transform.Rotate(0, 0, -rotationQuantity.y * steeringWheelSpeed * Time.deltaTime);
+                SteeringWheelRotation += -rotationQuantity.y * steeringWheelSpeed * Time.deltaTime;
+            }
+            else if (rotationQuantity.y < 0 && SteeringWheelRotation < SteeringWheelClip.x)
+            {
+                SteeringWHeel.transform.Rotate(0, 0, -rotationQuantity.y * steeringWheelSpeed * Time.deltaTime);
+                SteeringWheelRotation += -rotationQuantity.y * steeringWheelSpeed * Time.deltaTime;
+            }
+
+            
         }
+        else
+        {
+            if (SteeringWheelRotation > 1.0f)
+            {
+                SteeringWHeel.transform.Rotate(0, 0, -steeringWheelSpeed * Time.deltaTime);
+                SteeringWheelRotation +=  -steeringWheelSpeed * Time.deltaTime;
+            }
+
+            if (SteeringWheelRotation < 1.0f)
+            {
+                SteeringWHeel.transform.Rotate(0, 0, steeringWheelSpeed * Time.deltaTime);
+                SteeringWheelRotation += steeringWheelSpeed * Time.deltaTime;
+            }
+        }
+
+     //   else if (SteeringWHeel.transform.rotation.z > 0.2f)
+     //       SteeringWHeel.transform.Rotate(0, 0, steeringWheelSpeed * Time.deltaTime);
+     //   else if (SteeringWHeel.transform.rotation.z < 0.2f)
+     //       SteeringWHeel.transform.Rotate(0, 0,  steeringWheelSpeed * Time.deltaTime);
+
+
 
         //dont tip the car
 

@@ -84,11 +84,28 @@ public class NavMeshNavigator : MonoBehaviour
                 isDead = true;
                 Destroy(this.gameObject, 1.0f);
 
+                GameObject car = collision.gameObject;
+                PointSystem sys = car.GetComponentInChildren<PointSystem>();
+                PerpDescription desc = this.gameObject.GetComponentInChildren<PerpDescription>();
+
+                if (desc.isTarget)
+                    sys.BudgetChange(desc.score);
+                else
+                    sys.BudgetChange(-desc.penalty);
+
                 GameObject roses = Instantiate(roseObject, this.gameObject.transform);
 
                 Rigidbody rigidBody = this.gameObject.GetComponent<Rigidbody>();
-                rigidBody.AddForce(new Vector3(0, 1, 0), ForceMode.Impulse);
                 rigidBody.AddRelativeTorque(new Vector3(1, 1, 1), ForceMode.Acceleration);
+
+                AudioClip clip = desc.GetImpactSound();
+                AudioSource carSource = car.GetComponentInChildren<AudioSource>();
+                carSource.PlayOneShot(clip);
+
+                ScreenShake shake = Camera.main.GetComponentInChildren<ScreenShake>();
+
+                if (shake)
+                    shake.Shake();
             }
         }
     }
@@ -121,6 +138,9 @@ public class NavMeshNavigator : MonoBehaviour
         CheckIfNewPointRequired();
 
         GameObject[] cars = GameObject.FindGameObjectsWithTag("Car");
+
+        if (isDead)
+            this.gameObject.transform.localPosition += new Vector3(0, Time.deltaTime * 10.0f, 0);
 
         if (cars.Length != 0)
         {

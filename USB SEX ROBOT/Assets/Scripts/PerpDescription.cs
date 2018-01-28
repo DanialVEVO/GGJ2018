@@ -72,6 +72,7 @@ public class PerpDescription : MonoBehaviour
 
     // Privates
     private LocationInfo locationInfo = null;
+    private float disintegration = 0.0f;
 
     // Use this for initialization
 	void Awake ()
@@ -85,6 +86,17 @@ public class PerpDescription : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        NavMeshNavigator navi = this.gameObject.GetComponentInChildren<NavMeshNavigator>();
+
+        if (navi.isDead)
+        {
+            disintegration += Time.deltaTime;
+
+            if (disintegration >= 1.0f)
+                disintegration = 1.0f;
+        }
+
+
         UpdateSprites();	
 	}
 
@@ -105,25 +117,31 @@ public class PerpDescription : MonoBehaviour
             {
                 SpriteRenderer spriteRenderer = gameObj.GetComponent<SpriteRenderer>();
                 spriteRenderer.enabled = frontVisible;
-                spriteRenderer.transform.localPosition = new Vector3(0, Mathf.PingPong(Time.time * 30.0f, 3) * 0.03f, 0);
+                spriteRenderer.material.SetFloat("_Disintegration", disintegration);
 
                 if (suspect)
                     spriteRenderer.material.SetColor("_MaskColor", clothesColor);
 
                 if (!navi.isDead)
+                {
                     gameObj.transform.rotation = Camera.main.transform.rotation;
+                    spriteRenderer.transform.localPosition = new Vector3(0, Mathf.PingPong(Time.time * 30.0f, 3) * 0.03f, 0);
+                }
             }
             else if (gameObj.name == "Back")
             {
                 SpriteRenderer spriteRenderer = gameObj.GetComponent<SpriteRenderer>();
                 spriteRenderer.enabled = backVisible;
-                spriteRenderer.transform.localPosition = new Vector3(0, Mathf.PingPong(Time.time * 30.0f, 3) * 0.03f, 0);
+                spriteRenderer.material.SetFloat("_Disintegration", disintegration);
 
                 if (suspect)
                     spriteRenderer.material.SetColor("_MaskColor", clothesColor);
 
                 if (!navi.isDead)
+                {
                     gameObj.transform.rotation = Camera.main.transform.rotation;
+                    spriteRenderer.transform.localPosition = new Vector3(0, Mathf.PingPong(Time.time * 30.0f, 3) * 0.03f, 0);
+                }
             }
         }
     }

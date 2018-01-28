@@ -6,6 +6,7 @@
 		_MaskTex ("Clothing mask (A)", 2D) = "white" {}
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 		_Metallic ("Metallic", Range(0,1)) = 0.0
+		_Disintegration ("Disintegration", Range(0,1)) = 0.0	
 	}
 	SubShader {
 		Tags
@@ -37,8 +38,9 @@
 			float2 uv_MainTex;
 		};
 
-		half _Glossiness;
+		half _Glossiness; 
 		half _Metallic;
+		half _Disintegration;
 		fixed4 _Color;
 		fixed4 _MaskColor;
 
@@ -51,9 +53,19 @@
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
-			fixed4 c1 = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+			float2 uv = IN.uv_MainTex;
+			float uvDif = fmod(uv.y, 0.01f);
+
+			if (uvDif >= 0.005f)
+				uvDif = 0.01f;
+			else
+				uvDif = -0.01f;
+
+			uv.x += uvDif * _Disintegration * 32.0f;
+
+			fixed4 c1 = tex2D (_MainTex, uv) * _Color;
 			fixed4 c2 = c1 * _MaskColor;
-			fixed4 c = lerp(c1, c2, tex2D (_MaskTex, IN.uv_MainTex));
+			fixed4 c = lerp(c1, c2, tex2D (_MaskTex, uv));
 
 			if (c1.a < 0.5)
 				discard;

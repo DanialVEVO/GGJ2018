@@ -9,8 +9,8 @@ public class NavMeshNavigator : MonoBehaviour
     public static float minDistanceNextPoint = 20.0f;
     public static float maxPathTime = 45.0f;
     public static float deathRadius = 20.0f;
-    public static float exitPanicModeRadius = 20.0f;
-    public static float carPanicRadius = 15.0f;
+    public static float exitPanicModeRadius = 25.0f;
+    public static float carPanicRadius = 20.0f;
 
     public float baseSpeed = 1.5f;
     public float panicSpeed = 3.0f;

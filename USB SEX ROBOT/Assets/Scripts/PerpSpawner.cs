@@ -59,7 +59,6 @@ public class PerpSpawner : MonoBehaviour
                     possibleInnocents.Add(gameObj);
             }
         }
-
     }
 	
 	// Update is called once per frame
@@ -67,6 +66,16 @@ public class PerpSpawner : MonoBehaviour
     {
         lock (lockObject)
             SpawnNpcs();
+
+        GameObject car = GameObject.FindGameObjectWithTag("Car");
+
+        if (car)
+        {
+            PointSystem pointSys = car.GetComponentInChildren<PointSystem>();
+
+            if (pointSys.suspect == null)
+                pointSys.GetNewTarget(GetSuspect());
+        }
     }
 
     public void RemoveFromActive(GameObject perp)

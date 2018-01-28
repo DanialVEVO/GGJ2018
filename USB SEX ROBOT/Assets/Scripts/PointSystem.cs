@@ -11,7 +11,7 @@ public class PointSystem : MonoBehaviour {
     GameObject textWolk;
 
     [SerializeField]
-    PerpDescription suspect;
+    public PerpDescription suspect = null;
 
     [SerializeField]
     float timeBetweenMessages = 10.0f;

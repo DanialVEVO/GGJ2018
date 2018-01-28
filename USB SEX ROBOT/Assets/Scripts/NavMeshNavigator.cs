@@ -11,8 +11,8 @@ public class NavMeshNavigator : MonoBehaviour
     public static float deathRadius = 20.0f;
     public static float exitPanicModeRadius = 25.0f;
     public static float carPanicRadius = 20.0f;
-    public static float carMinSpeed = 5.0f;
-    public static float carMinHitSpeed = 12.0f;
+    public static float carMinSpeed = 20.0f;
+    public static float carMinHitSpeed = 20.0f;
 
     public float baseSpeed = 1.5f;
     public float panicSpeed = 3.0f;
@@ -211,8 +211,15 @@ public class NavMeshNavigator : MonoBehaviour
 
         if (gameObj != null)
         {
+            GameObject car = GameObject.FindGameObjectWithTag("Car");
+            PointSystem sys = car.GetComponentInChildren<PointSystem>();
+
+            PerpDescription desc = this.gameObject.GetComponentInChildren<PerpDescription>();
             PerpSpawner perpSpawner = gameObj.GetComponentInChildren<PerpSpawner>();
             perpSpawner.RemoveFromActive(this.gameObject);
+
+            if (desc.isTarget)
+                sys.GetNewTarget(perpSpawner.GetSuspect());
         }
     }
 

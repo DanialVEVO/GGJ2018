@@ -259,6 +259,25 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 554577659}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &581418684 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1188335702271292, guid: ce4bcad6e5346004f91b93060ab4ccdf,
+    type: 2}
+  m_PrefabInternal: {fileID: 969123742}
+--- !u!114 &581418685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 581418684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784b6447231ebef4e8edcf824ad5dc3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClipIntro: {fileID: 8300000, guid: b7739d1ffa026784e927519cf98b9c40, type: 3}
+  audioClipPart: {fileID: 8300000, guid: 7e14c0e5646bbb540a2b8ccb258a4875, type: 3}
+  audioClipLoop: {fileID: 8300000, guid: 612fb8da2514b9b40b2ef0e6d4179dc6, type: 3}
 --- !u!1 &676884003
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +561,10 @@ Prefab:
     - target: {fileID: 1621089546612140, guid: ce4bcad6e5346004f91b93060ab4ccdf, type: 2}
       propertyPath: m_TagString
       value: Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188335702271292, guid: ce4bcad6e5346004f91b93060ab4ccdf, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce4bcad6e5346004f91b93060ab4ccdf, type: 2}

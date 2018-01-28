@@ -147,8 +147,8 @@ MonoBehaviour:
   height: 1
   highValueTarget: 0
   suspect: 1
-  score: 8000
-  penalty: 1800
+  score: 4000
+  penalty: 200
   isTarget: 0
   timeLeft: -1
   explosionRadius: 10

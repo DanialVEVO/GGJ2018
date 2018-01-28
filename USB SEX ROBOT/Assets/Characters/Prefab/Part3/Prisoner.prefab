@@ -149,6 +149,10 @@ MonoBehaviour:
   score: 0
   penalty: 100
   isTarget: 0
+  timeLeft: -1
+  explosionRadius: 10
+  explosionParticle: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
+    type: 2}
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114629379547402576
 MonoBehaviour:
@@ -165,6 +169,7 @@ MonoBehaviour:
   panicSpeed: 0.55
   isDead: 0
   roseObject: {fileID: 1388188611212830, guid: 2a5eb01990cf8714684ed1877ef5d3db, type: 2}
+  jackpotSound: {fileID: 8300000, guid: aadf38c0c0ee3e549b6f241a752acf70, type: 3}
   initialPanic: 0
 --- !u!136 &136143911643009628
 CapsuleCollider:

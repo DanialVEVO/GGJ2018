@@ -35,6 +35,10 @@ public class PerpSpawner : MonoBehaviour
                 if (desc.isTarget == false)
                 {
                     desc.isTarget = true;
+
+                    if (Random.Range(0, 100) >= 90)
+                        desc.highValueTarget = true;
+
                     return desc;
                 }
             }

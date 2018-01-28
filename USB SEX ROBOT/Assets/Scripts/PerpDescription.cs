@@ -39,7 +39,6 @@ public class PerpDescription : MonoBehaviour
         Color.green,
         Color.magenta,
         Color.red,
-        Color.white,
         Color.yellow
     };
 
@@ -52,7 +51,6 @@ public class PerpDescription : MonoBehaviour
         "Green",
         "Magenta",
         "Red",
-        "White",
         "Yellow"
     };
 
@@ -65,6 +63,9 @@ public class PerpDescription : MonoBehaviour
     public int score = 0;
     public int penalty = 0;
     public bool isTarget = false;
+    public float timeLeft = -1.0f;
+    public float explosionRadius = 10.0f;
+    public GameObject explosionParticle;
 
     // Optionally authorable
     public Color clothesColor = Color.clear;
@@ -96,9 +97,30 @@ public class PerpDescription : MonoBehaviour
                 disintegration = 1.0f;
         }
 
+        UpdateSprites();
 
-        UpdateSprites();	
-	}
+        if (timeLeft >= 0.0f)
+        {
+            timeLeft -= Time.deltaTime;
+
+            if (timeLeft <= 0.0f)
+            {
+                Instantiate(explosionParticle, transform.position, Quaternion.identity);
+                navi.Die(true);
+
+                // Explosion
+                RaycastHit[] castRes = Physics.SphereCastAll(transform.position, explosionRadius, transform.right);
+
+                foreach (RaycastHit hit in castRes)
+                {
+                    NavMeshNavigator navi2 = hit.collider.gameObject.GetComponentInChildren<NavMeshNavigator>();
+
+                    if (navi2 && navi != navi2)
+                        navi2.Die(false);
+                }
+            }
+        }
+    }
 
     private void UpdateSprites()
     {

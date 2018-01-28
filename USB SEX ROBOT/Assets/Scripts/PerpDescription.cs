@@ -105,6 +105,9 @@ public class PerpDescription : MonoBehaviour
                 spriteRenderer.enabled = frontVisible;
                 spriteRenderer.transform.localPosition = new Vector3(0, Mathf.PingPong(Time.time * 30.0f, 3) * 0.03f, 0);
 
+                if (suspect)
+                    spriteRenderer.material.SetColor("_MaskColor", clothesColor);
+
                 gameObj.transform.rotation = Camera.main.transform.rotation;
             }
             else if (gameObj.name == "Back")
@@ -112,6 +115,9 @@ public class PerpDescription : MonoBehaviour
                 SpriteRenderer spriteRenderer = gameObj.GetComponent<SpriteRenderer>();
                 spriteRenderer.enabled = backVisible;
                 spriteRenderer.transform.localPosition = new Vector3(0, Mathf.PingPong(Time.time * 30.0f, 3) * 0.03f, 0);
+
+                if (suspect)
+                    spriteRenderer.material.SetColor("_MaskColor", clothesColor);
 
                 gameObj.transform.rotation = Camera.main.transform.rotation;
             }

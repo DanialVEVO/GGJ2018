@@ -169,7 +169,7 @@ MonoBehaviour:
   highValueTarget: 0
   suspect: 0
   score: 0
-  penalty: 75
+  penalty: 600
   isTarget: 0
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!136 &136099293976369680

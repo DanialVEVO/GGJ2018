@@ -39,7 +39,6 @@ public class PerpDescription : MonoBehaviour
         Color.green,
         Color.magenta,
         Color.red,
-        Color.white,
         Color.yellow
     };
 
@@ -52,7 +51,6 @@ public class PerpDescription : MonoBehaviour
         "Green",
         "Magenta",
         "Red",
-        "White",
         "Yellow"
     };
 

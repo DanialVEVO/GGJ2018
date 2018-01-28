@@ -19,6 +19,30 @@ public class PerpSpawner : MonoBehaviour
     private List<GameObject> possibleInnocents = new List<GameObject>();
     private object lockObject = new object();
 
+    // Ask for perp
+    // May return null
+    public PerpDescription GetSuspect()
+    {
+        if (activeSuspectablePerps.Count == 0)
+            return null;
+
+        lock (lockObject)
+        {
+            foreach (GameObject obj in activeSuspectablePerps)
+            {
+                PerpDescription desc = obj.GetComponentInChildren<PerpDescription>();
+
+                if (desc.isTarget == false)
+                {
+                    desc.isTarget = true;
+                    return desc;
+                }
+            }
+        }
+
+        return null;
+    }
+
     // Use this for initialization
     void Start ()
     {

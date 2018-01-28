@@ -161,6 +161,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: edf3af435d5dd6b4eb416b09529cfcda, type: 3}
   - {fileID: 8300000, guid: 98bc314170bda8e499b7df9fe7c034ad, type: 3}
   - {fileID: 8300000, guid: 4114abd8581b3684d84d2dc1cd48c627, type: 3}
+  - {fileID: 8300000, guid: 28df04aaf844a984eaf94624b97ea206, type: 3}
   sex: 1
   age: 4
   height: 2

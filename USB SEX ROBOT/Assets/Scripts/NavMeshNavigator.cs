@@ -12,10 +12,10 @@ public class NavMeshNavigator : MonoBehaviour
     public static float exitPanicModeRadius = 20.0f;
     public static float carPanicRadius = 15.0f;
 
-    public float baseSpeed = 2.0f;
-    public float panicSpeed = 4.0f;
-
-    public GameObject car = null;
+    public float baseSpeed = 1.5f;
+    public float panicSpeed = 3.0f;
+    public bool isDead = false;
+    
     public static List<NavMeshNavigator> listOfNavigators = new List<NavMeshNavigator>();
 
     // Debug vals
@@ -54,7 +54,7 @@ public class NavMeshNavigator : MonoBehaviour
     private bool isPanicked = false;
 
 	// Use this for initialization
-	void Start ()
+	void Awake()
     {
         lastPickTime = Time.time;
 
@@ -63,32 +63,52 @@ public class NavMeshNavigator : MonoBehaviour
 
         if (initialPanic)
             Panicked = true;
-
-        PickRandomPoint();
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    void Start()
+    {
+        PickRandomPoint();
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         CheckIfNewPointRequired();
 
-        if (car != null)
+        GameObject[] cars = GameObject.FindGameObjectsWithTag("Car");
+
+        if (cars.Length != 0)
         {
-            float carDistance = Vector3.Distance(car.transform.position, this.gameObject.transform.position);
+            float carDistance = 9999.0f;
+            int outOfRadius = 0;
 
-            if (Panicked && carDistance >= exitPanicModeRadius)
-                Panicked = false;
-
-            if (!Panicked)
+            foreach (GameObject car in cars)
             {
-                // Check if car is on sidewalk, and if so, check if we need to panic
-                NavMeshHit hit;
-                bool gotHit = NavMesh.SamplePosition(car.transform.position, out hit, 2.0f, NavMesh.AllAreas);
+                float curCarDistance = Vector3.Distance(car.transform.position, this.gameObject.transform.position);
+                carDistance = Mathf.Min(carDistance, curCarDistance);
 
-                if (gotHit && carDistance <= carPanicRadius)
+                if (Panicked && curCarDistance >= exitPanicModeRadius)
+                    outOfRadius++;
+            }
+
+            if (Panicked && outOfRadius == cars.Length)
+                Panicked = false;
+            else if (!Panicked)
+            {
+                foreach (GameObject car in cars)
                 {
-                    if ((hit.mask & 1) > 0)
-                        Panicked = true;
+                    // Check if car is on sidewalk, and if so, check if we need to panic
+                    NavMeshHit hit;
+                    bool gotHit = NavMesh.SamplePosition(car.transform.position, out hit, 2.0f, NavMesh.AllAreas);
+
+                    if (gotHit && carDistance <= carPanicRadius)
+                    {
+                        if ((hit.mask & 1) > 0)
+                        {
+                            Panicked = true;
+                            break;
+                        }
+                    }
                 }
             }
         }
@@ -99,16 +119,28 @@ public class NavMeshNavigator : MonoBehaviour
     // Called on death
     private void OnDestroy()
     {
-        lock (listOfNavigators)
+        if (isDead)
         {
-            listOfNavigators.Remove(this);
-
-            // Put others in panic mode
-            foreach (NavMeshNavigator navigator in listOfNavigators)
+            lock (listOfNavigators)
             {
-                if (Vector3.Distance(this.gameObject.transform.position, navigator.gameObject.transform.position) <= deathRadius)
-                    navigator.Panicked = true;
+                listOfNavigators.Remove(this);
+
+                // Put others in panic mode
+                foreach (NavMeshNavigator navigator in listOfNavigators)
+                {
+                    if (Vector3.Distance(this.gameObject.transform.position, navigator.gameObject.transform.position) <= deathRadius)
+                        navigator.Panicked = true;
+                }
             }
+        }
+
+        // Find spawner
+        GameObject gameObj = GameObject.FindGameObjectWithTag("Spawner");
+
+        if (gameObj != null)
+        {
+            PerpSpawner perpSpawner = gameObj.GetComponentInChildren<PerpSpawner>();
+            perpSpawner.RemoveFromActive(this.gameObject);
         }
     }
 
@@ -122,6 +154,7 @@ public class NavMeshNavigator : MonoBehaviour
             return;
 
         float minDistance = minDistanceNextPoint * (Panicked ? 2.0f : 1.0f);
+        GameObject[] cars = GameObject.FindGameObjectsWithTag("Car");
 
         // Max 100 iterations
         for (int i = 0; i < 100; i++)
@@ -142,13 +175,21 @@ public class NavMeshNavigator : MonoBehaviour
                 continue;
             }
 
-            // Hey dit is retarded code maar ik ben te moe om te refactoren, later misschien OK
-            if (car != null && Vector3.Distance(car.transform.position, hit.position) < minDistance)
+            bool needsContinue = false;
+
+            foreach (GameObject car in cars)
             {
-                minDistance -= 1.0f;
-                minDistance = Mathf.Max(0.0f, minDistance);
-                continue;
+                if (Vector3.Distance(car.transform.position, hit.position) < minDistance)
+                {
+                    minDistance -= 1.0f;
+                    minDistance = Mathf.Max(0.0f, minDistance);
+                    needsContinue = true;
+                    break;
+                }
             }
+
+            if (needsContinue)
+                continue;
 
             targetPosition = hit.position;
             targetMask = hit.mask;

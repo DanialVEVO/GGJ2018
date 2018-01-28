@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 54957914588535734}
   - component: {fileID: 114995432407348660}
   - component: {fileID: 114554284598919514}
+  - component: {fileID: 195649002664772144}
   m_Layer: 0
   m_Name: FemaleChild
   m_TagString: Untagged
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 2
   panicSpeed: 4
-  car: {fileID: 0}
+  isDead: 0
   initialPanic: 0
 --- !u!114 &114995432407348660
 MonoBehaviour:
@@ -161,6 +162,7 @@ MonoBehaviour:
   highValueTarget: 0
   suspect: 1
   score: 0
+  isTarget: 0
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!136 &136436770815892622
 CapsuleCollider:
@@ -175,6 +177,27 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &195649002664772144
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1983095889685362}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!212 &212154909413914910
 SpriteRenderer:
   m_ObjectHideFlags: 1

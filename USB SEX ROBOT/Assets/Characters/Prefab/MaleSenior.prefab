@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 54266283889234828}
   - component: {fileID: 114643198322632578}
   - component: {fileID: 114984735389133858}
+  - component: {fileID: 195206258841127702}
   m_Layer: 0
   m_Name: MaleSenior
   m_TagString: Untagged
@@ -145,6 +146,7 @@ MonoBehaviour:
   highValueTarget: 0
   suspect: 1
   score: 0
+  isTarget: 0
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114984735389133858
 MonoBehaviour:
@@ -159,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 2
   panicSpeed: 4
-  car: {fileID: 0}
+  isDead: 0
   initialPanic: 0
 --- !u!136 &136929646331310338
 CapsuleCollider:
@@ -174,6 +176,27 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &195206258841127702
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1314497521591382}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!212 &212107615007692020
 SpriteRenderer:
   m_ObjectHideFlags: 1

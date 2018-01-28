@@ -63,6 +63,7 @@ public class PerpDescription : MonoBehaviour
     public bool highValueTarget;
     public bool suspect = true;
     public int score = 0;
+    public bool isTarget = false;
 
     // Optionally authorable
     public Color clothesColor = Color.clear;
@@ -71,8 +72,8 @@ public class PerpDescription : MonoBehaviour
     // Privates
     private LocationInfo locationInfo = null;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+	void Awake ()
     {
         locationInfo = this.gameObject.AddComponent<LocationInfo>();
 
@@ -95,9 +96,9 @@ public class PerpDescription : MonoBehaviour
         clothesColorStr = PossibleColorsStr[index];
     }
 
-    public Hash128 GetPerpHash(object customData)
+    public string GetPerpHash(string customData)
     {
-        return Hash128.Parse(sex.ToString() + age.ToString() + clothesColor.ToString() + height.ToString() + (customData != null ? customData.ToString() : ""));
+        return (sex.ToString() + age.ToString() + clothesColor.ToString() + height.ToString() + (customData != null ? customData : ""));
     }
 
     public string GetLocation()

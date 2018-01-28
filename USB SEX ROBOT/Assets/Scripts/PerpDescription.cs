@@ -63,6 +63,7 @@ public class PerpDescription : MonoBehaviour
     public bool highValueTarget;
     public bool suspect = true;
     public int score = 0;
+    public int penalty = 0;
     public bool isTarget = false;
 
     // Optionally authorable

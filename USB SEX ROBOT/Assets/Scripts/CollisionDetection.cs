@@ -50,8 +50,12 @@ public class CollisionDetection : MonoBehaviour {
         if (other.gameObject.tag == "Car" &! hasBroken)
         {
             Debug.Log("Recieved");
-           // damageManager.GetComponent<DamageManager>().totalValue -= value;
+            // damageManager.GetComponent<DamageManager>().totalValue -= value;
             //particle.Play();
+
+            if(GetComponent<AudioSource>() != null)
+                GetComponent<AudioSource>().Play();
+
             hasBroken = true;
             //breakSound.Play();
             foreach (Rigidbody R in rigidBodies)
@@ -60,10 +64,9 @@ public class CollisionDetection : MonoBehaviour {
             }
             GetComponent<Collider>().enabled = false;
             
-            if (other.GetComponentInChildren<PointSystem>() != null)
-            {
-                other.GetComponentInChildren<PointSystem>().BudgetChange(-value);
-            } 
+            
         }
     }
 }
+
+

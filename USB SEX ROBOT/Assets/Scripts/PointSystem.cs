@@ -73,11 +73,28 @@ public class PointSystem : MonoBehaviour {
         textWolk.GetComponentInChildren<TextMesh>().text = messages[randomTextNumber];
     }
 
+    public void GetNewTarget(PerpDescription newTarget)
+    {
+        suspect = newTarget;
+    }
 
     public void BudgetChange(int changeOfBudget = 0) 
     {
         budget += changeOfBudget;
         budgetDisplay.text = budget.ToString();
+
+        if (changeOfBudget > 0)
+        {
+            textWolk.SetActive(true);
+            newStringTimer = timeBetweenMessages + timeMessageVisibility;
+            textWolk.GetComponentInChildren<TextMesh>().text = "GOOD JOB! \n you'll get your \n next target soon";
+            suspect = null;
+        }
+    }
+
+    void trackSuspect()
+    {
+
     }
 
 	// Update is called once per frame

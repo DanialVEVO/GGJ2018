@@ -56,10 +56,11 @@ public class PointSystem : MonoBehaviour {
         textWolk.SetActive(true);
         newStringTimer = timeBetweenMessages + timeMessageVisibility; 
 
-        messages = new string[4] { "We are looking \n for a " + suspect.sex + ".",
+        messages = new string[5] { "We are looking \n for a " + suspect.sex + ".",
                                     "Our Suspect \n is a " + suspect.age + ".",
                                     "Look out for  \n a " + suspect.height + " person.",
-                                    "Our suspect is \nwearing " + suspect.GetColor() + " \n clothes." };
+                                    "Our suspect is \nwearing " + suspect.GetColor() + " \n clothes.",
+                                    "Your target is \n near " + suspect.GetLocation() + "."};
 
 
         int newRandomTextNumber = Random.Range(0, messages.Length);

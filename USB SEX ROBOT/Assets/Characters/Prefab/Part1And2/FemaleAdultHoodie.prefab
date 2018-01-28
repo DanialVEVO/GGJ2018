@@ -130,8 +130,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f84254134b54c4d9c37fa584b618a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScreamSoundList: []
-  ImpactSoundList: []
+  ScreamSoundList:
+  - {fileID: 8300000, guid: 178251da06834264c83a03d41991e309, type: 3}
+  - {fileID: 8300000, guid: 0ad580eaf39cd8c4c948f8b683af5e76, type: 3}
+  - {fileID: 8300000, guid: aa86eff594b3ae24c8ce8716567aefe3, type: 3}
+  - {fileID: 8300000, guid: afc4378d30bc0154ca7658a751613abe, type: 3}
+  - {fileID: 8300000, guid: 3a4931a86be44af4caaaf44419c4c050, type: 3}
+  - {fileID: 8300000, guid: 4a762d358a8c45f47a5279db8f72b1f2, type: 3}
+  - {fileID: 8300000, guid: 501c27c4ab142af49b29c33fc0982f75, type: 3}
+  - {fileID: 8300000, guid: 8248942d417323546a08aca46d56e7ef, type: 3}
+  - {fileID: 8300000, guid: 305b62dca5fc05145b075b4ac7a406e8, type: 3}
+  ImpactSoundList:
+  - {fileID: 8300000, guid: 5696ee8c9c9916743a535147f0730a26, type: 3}
+  - {fileID: 8300000, guid: 5166f67553a7e9942898dfb4bafd0a60, type: 3}
+  - {fileID: 8300000, guid: edf3af435d5dd6b4eb416b09529cfcda, type: 3}
+  - {fileID: 8300000, guid: 98bc314170bda8e499b7df9fe7c034ad, type: 3}
+  - {fileID: 8300000, guid: 4114abd8581b3684d84d2dc1cd48c627, type: 3}
+  - {fileID: 8300000, guid: 28df04aaf844a984eaf94624b97ea206, type: 3}
   sex: 1
   age: 3
   height: 0

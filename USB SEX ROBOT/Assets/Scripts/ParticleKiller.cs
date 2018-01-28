@@ -16,7 +16,7 @@ public class ParticleKiller : MonoBehaviour
     {
         ParticleSystem particleSystem = this.gameObject.GetComponent<ParticleSystem>();
 
-        if (!particleSystem.IsAlive())
+        if (!particleSystem.isPlaying)
             Destroy(this.gameObject);
 	}
 }

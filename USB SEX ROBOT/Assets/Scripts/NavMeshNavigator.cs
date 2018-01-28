@@ -18,6 +18,7 @@ public class NavMeshNavigator : MonoBehaviour
     public float panicSpeed = 3.0f;
     public bool isDead = false;
     public GameObject roseObject = null;
+    public AudioClip jackpotSound;
     
     public static List<NavMeshNavigator> listOfNavigators = new List<NavMeshNavigator>();
 
@@ -87,9 +88,10 @@ public class NavMeshNavigator : MonoBehaviour
                 GameObject car = collision.gameObject;
                 PointSystem sys = car.GetComponentInChildren<PointSystem>();
                 PerpDescription desc = this.gameObject.GetComponentInChildren<PerpDescription>();
+                AudioSource carSource = car.GetComponentInChildren<AudioSource>();
 
                 if (desc.isTarget)
-                    sys.BudgetChange(desc.score);
+                    sys.BudgetChange((int)((float)desc.score * (desc.highValueTarget ? 1.5f : 1)));
                 else
                     sys.BudgetChange(-desc.penalty);
 
@@ -98,9 +100,13 @@ public class NavMeshNavigator : MonoBehaviour
                 Rigidbody rigidBody = this.gameObject.GetComponent<Rigidbody>();
                 rigidBody.AddRelativeTorque(new Vector3(1, 1, 1), ForceMode.Acceleration);
 
-                AudioClip clip = desc.GetImpactSound();
-                AudioSource carSource = car.GetComponentInChildren<AudioSource>();
-                carSource.PlayOneShot(clip);
+                if (!desc.isTarget)
+                {
+                    AudioClip clip = desc.GetImpactSound();
+                    AudioSource.PlayClipAtPoint(clip, car.transform.position);
+                }
+                else
+                    carSource.PlayOneShot(jackpotSound);
 
                 ScreenShake shake = Camera.main.GetComponentInChildren<ScreenShake>();
 
@@ -108,6 +114,34 @@ public class NavMeshNavigator : MonoBehaviour
                     shake.Shake();
             }
         }
+    }
+
+    public void Die(bool isHighValue)
+    {
+        isDead = true;
+        Destroy(this.gameObject, 1.0f);
+        
+        GameObject car = GameObject.FindGameObjectWithTag("Car");
+        PointSystem sys = car.GetComponentInChildren<PointSystem>();
+        PerpDescription desc = this.gameObject.GetComponentInChildren<PerpDescription>();
+        AudioSource carSource = car.GetComponentInChildren<AudioSource>();
+
+        if (isHighValue)
+        {
+            sys.BudgetChange((int)(-desc.penalty * 1.5f));
+        }
+        else
+        {
+            if (desc.isTarget)
+                sys.BudgetChange((int)((float)desc.score * (desc.highValueTarget ? 1.5f : 1)));
+            else
+                sys.BudgetChange(-desc.penalty);
+        }
+
+        GameObject roses = Instantiate(roseObject, this.gameObject.transform);
+
+        Rigidbody rigidBody = this.gameObject.GetComponent<Rigidbody>();
+        rigidBody.AddRelativeTorque(new Vector3(1, 1, 1), ForceMode.Acceleration);
     }
 
     // Use this for initialization

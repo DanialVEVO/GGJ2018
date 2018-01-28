@@ -68,13 +68,14 @@ public class PointSystem : MonoBehaviour {
                                     "Our Suspect \n is a " + suspect.age + ".",
                                     "Look out for  \n a " + suspect.height + " person.",
                                     "Our suspect is \nwearing " + suspect.GetColor() + " \n clothes.",
-                                    "Your target is \n near " + suspect.GetLocation() + "."};
+                                    "They are planning \n an attack! \n " + suspect.timeLeft.ToString("F2") + " seconds left!" };
 
+        int selectableLength = suspect.highValueTarget ? messages.Length : messages.Length - 1;
 
-        int newRandomTextNumber = Random.Range(0, messages.Length-1);
+        int newRandomTextNumber = Random.Range(0, selectableLength);
 
         while(newRandomTextNumber == randomTextNumber)
-            newRandomTextNumber = Random.Range(0, messages.Length-1);
+            newRandomTextNumber = Random.Range(0, selectableLength);
 
         randomTextNumber = newRandomTextNumber;
 
@@ -84,6 +85,9 @@ public class PointSystem : MonoBehaviour {
     public void GetNewTarget(PerpDescription newTarget)
     {
         suspect = newTarget;
+
+        if (suspect.highValueTarget)
+            suspect.timeLeft = 60.0f;
     }
 
     public void BudgetChange(int changeOfBudget = 0) 

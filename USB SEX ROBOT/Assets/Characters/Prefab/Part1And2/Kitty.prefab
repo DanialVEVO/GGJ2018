@@ -134,6 +134,7 @@ MonoBehaviour:
   panicSpeed: 5
   isDead: 0
   roseObject: {fileID: 1388188611212830, guid: 2a5eb01990cf8714684ed1877ef5d3db, type: 2}
+  jackpotSound: {fileID: 8300000, guid: aadf38c0c0ee3e549b6f241a752acf70, type: 3}
   initialPanic: 0
 --- !u!114 &114093753939776348
 MonoBehaviour:
@@ -147,9 +148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScreamSoundList:
-  - {fileID: 8300000, guid: 4dcbb2d216e20e94d864f0e5c75fed62, type: 3}
-  - {fileID: 8300000, guid: 56ad860e7ca692745a0396dd37de7c03, type: 3}
-  - {fileID: 8300000, guid: e3220ce9187955943a597016a842b38a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ImpactSoundList:
   - {fileID: 8300000, guid: 5696ee8c9c9916743a535147f0730a26, type: 3}
   - {fileID: 8300000, guid: 5166f67553a7e9942898dfb4bafd0a60, type: 3}
@@ -165,6 +166,10 @@ MonoBehaviour:
   score: 0
   penalty: 750
   isTarget: 0
+  timeLeft: -1
+  explosionRadius: 10
+  explosionParticle: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
+    type: 2}
   clothesColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!136 &136918624581141156
 CapsuleCollider:

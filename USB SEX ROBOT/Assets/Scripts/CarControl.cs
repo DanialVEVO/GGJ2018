@@ -72,7 +72,7 @@ public class CarControl : MonoBehaviour {
         else if (TimeNotMovingForward != 0.0f)
             TimeNotMovingForward = 0.0f;
 
-        Debug.Log("tijd staat nu op " + TimeNotMovingForward);
+
 
         //Field of view adjustment for extra sppeeeed.
         //float percentageFOV = GetComponent<Rigidbody>().velocity.magnitude / maxSpeed;
@@ -228,7 +228,7 @@ public class CarControl : MonoBehaviour {
 
                 GetComponent<Rigidbody>().AddRelativeForce(-Vector3.forward * maxBreakSpeed * Input.GetAxis("LeftBump") * Time.fixedDeltaTime);
             }
-            else if (TimeNotMovingForward > 0.8f && GetComponent<Rigidbody>().velocity.magnitude <= maxSpeed/2)
+            else if (TimeNotMovingForward > 0.4f && GetComponent<Rigidbody>().velocity.magnitude <= maxSpeed/2)
             {
                 GetComponent<Rigidbody>().AddRelativeForce(-Vector3.forward * maxAcceleration * Input.GetAxis("LeftBump") * Time.fixedDeltaTime);
             }

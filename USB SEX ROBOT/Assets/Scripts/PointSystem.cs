@@ -63,10 +63,10 @@ public class PointSystem : MonoBehaviour {
                                     "Your target is \n near " + suspect.GetLocation() + "."};
 
 
-        int newRandomTextNumber = Random.Range(0, messages.Length);
+        int newRandomTextNumber = Random.Range(0, messages.Length-1);
 
         while(newRandomTextNumber == randomTextNumber)
-            newRandomTextNumber = Random.Range(0, messages.Length);
+            newRandomTextNumber = Random.Range(0, messages.Length-1);
 
         randomTextNumber = newRandomTextNumber;
 

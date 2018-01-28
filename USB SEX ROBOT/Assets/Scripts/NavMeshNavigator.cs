@@ -11,6 +11,7 @@ public class NavMeshNavigator : MonoBehaviour
     public static float deathRadius = 20.0f;
     public static float exitPanicModeRadius = 25.0f;
     public static float carPanicRadius = 20.0f;
+    public static float carMinSpeed = 5.0f;
 
     public float baseSpeed = 1.5f;
     public float panicSpeed = 3.0f;
@@ -26,6 +27,7 @@ public class NavMeshNavigator : MonoBehaviour
     private float lastPickTime = 0.0f;
     private bool needsReset = false;
     private int targetMask = 0;
+    private AudioSource audioSource = null;
 
     public bool Panicked
     {
@@ -46,6 +48,18 @@ public class NavMeshNavigator : MonoBehaviour
             if (value == false)
                 needsReset = true;
 
+            if (isPanicked)
+            {
+                PerpDescription desc = this.gameObject.GetComponentInChildren<PerpDescription>();
+
+                if (desc.ScreamSoundList.Length > 0)
+                {
+                    int randomIndex = Random.Range(0, desc.ScreamSoundList.Length);
+                    audioSource.clip = desc.ScreamSoundList[randomIndex];
+                    audioSource.Play();
+                }
+            }
+
             // Pick new point
             PickRandomPoint();
         }
@@ -57,6 +71,11 @@ public class NavMeshNavigator : MonoBehaviour
 	void Awake()
     {
         lastPickTime = Time.time;
+        audioSource = this.gameObject.AddComponent<AudioSource>();
+        audioSource.spatialize = true;
+        audioSource.volume = 0.3f;
+        audioSource.spread = 360;
+        audioSource.SetCustomCurve(AudioSourceCurveType.CustomRolloff, AnimationCurve.Linear(0.0f, 1.0f, 500.0f, 0.0f));
 
         lock (listOfNavigators)
             listOfNavigators.Add(this);
@@ -101,7 +120,10 @@ public class NavMeshNavigator : MonoBehaviour
                     NavMeshHit hit;
                     bool gotHit = NavMesh.SamplePosition(car.transform.position, out hit, 2.0f, NavMesh.AllAreas);
 
-                    if (gotHit && carDistance <= carPanicRadius)
+                    Vector3 carVelocity = car.GetComponent<Rigidbody>().velocity;
+                    carVelocity.y = 0.0f;
+
+                    if (gotHit && carDistance <= carPanicRadius && Vector3.Dot(carVelocity, carVelocity) >= carMinSpeed)
                     {
                         if ((hit.mask & 1) > 0)
                         {

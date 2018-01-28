@@ -22,15 +22,15 @@ public class MusicScript : MonoBehaviour
         audioSourceLoop = Camera.main.gameObject.AddComponent<AudioSource>();
 
         audioSourceIntro.clip = audioClipIntro;
-        audioSourceIntro.volume = 0.25f;
+        audioSourceIntro.volume = 0.7f;
         audioSourceIntro.PlayDelayed(2.0f);
 
         audioSourcePart.clip = audioClipPart;
-        audioSourcePart.volume = 0.25f;
+        audioSourcePart.volume = 0.7f;
         audioSourcePart.PlayDelayed(9.680f);
 
         audioSourceLoop.clip = audioClipLoop;
-        audioSourceLoop.volume = 0.25f;
+        audioSourceLoop.volume = 0.7f;
         audioSourceLoop.loop = true;
         audioSourceLoop.PlayDelayed(25.040f);
     }

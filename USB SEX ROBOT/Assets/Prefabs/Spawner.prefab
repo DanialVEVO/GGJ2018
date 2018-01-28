@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1459430720931002}
+  m_IsPrefabParent: 1
+--- !u!1 &1459430720931002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4213487644842482}
+  - component: {fileID: 114327386741192856}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Spawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4213487644842482
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1459430720931002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2, y: 5, z: 2.742}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114327386741192856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1459430720931002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd60b18e3c1ee149a66f1a846a87e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxNumberOfPerps: 40
+  ListOfPossiblePerps:
+  - {fileID: 1556034507110882, guid: eaf8d54eecf02a64dbdb98c788888463, type: 2}
+  - {fileID: 1621570223925966, guid: 3dd322da6a413b148b0abc97b58315f1, type: 2}
+  - {fileID: 1637755901128978, guid: c1e78c58db1f66749a0e69276bbb4d5f, type: 2}
+  - {fileID: 1870745993910670, guid: 18720da926801494faf76ccb2bf95433, type: 2}
+  - {fileID: 1788985958901498, guid: 208f60ae632b05246ba7fdc718db071a, type: 2}
+  - {fileID: 1308824765398038, guid: 9bb85b9c7fc07d141ade142a01b079ef, type: 2}
+  - {fileID: 1983095889685362, guid: 404939566de9c3e40827d8939d5b5844, type: 2}
+  - {fileID: 1862992378795592, guid: f872b79edb54d3f47b41946e703aa42e, type: 2}
+  - {fileID: 1403692087210008, guid: 7f767c66d4334bc4a921ed637abf4ba7, type: 2}
+  - {fileID: 1141993860229116, guid: a48fc259db111ab4bade006352809bc0, type: 2}
+  - {fileID: 1370740638789674, guid: 953a6c4bfc2375640a1971197c47e183, type: 2}
+  - {fileID: 1980953351074138, guid: d8f372491a64341469a5c59ee942d053, type: 2}
+  - {fileID: 1737630908957744, guid: 781b421c41e0f7a49a9165193d64873f, type: 2}
+  - {fileID: 1644158513421558, guid: 4765fd2536a455d4aa81e37a5291088c, type: 2}
+  - {fileID: 1799988594871824, guid: 8b70fe87832517c4083f8d24e5a8122b, type: 2}
+  - {fileID: 1572053984620224, guid: ee0c2c49f940e3a43845263cae96ec16, type: 2}
+  - {fileID: 1933551992537172, guid: 07f224ff5a3a09c4eb6bababfd7fc1be, type: 2}
+  - {fileID: 1362963830805814, guid: c8354610dc0a44f4f89698eeba5015de, type: 2}
+  - {fileID: 1889317348729838, guid: 0553c0395aa4a9d4da2fe17e025cfd05, type: 2}
+  - {fileID: 1034509626740350, guid: 093e80afbc627ce4e89a4c29c11f84c6, type: 2}
+  - {fileID: 1184051787944342, guid: ed526ccd107aa4f46b30d2d8158c3739, type: 2}
+  - {fileID: 1314497521591382, guid: 7a88b1cb4b01f43488993a77107b8e95, type: 2}
+  - {fileID: 1483386360366584, guid: 283979d8e3e90e647867094ef6fa7b7d, type: 2}
+  - {fileID: 1216810049406108, guid: 1aa769fbb366ebf4594e6602f2c5c8a6, type: 2}
+  - {fileID: 1478737706943072, guid: 34e2386a7a707b6488c1cf62f8224f4a, type: 2}
+  - {fileID: 1688417193249044, guid: 1ad1b688b683f67429f6a97f7866d3ea, type: 2}
+  - {fileID: 1367300654486052, guid: 3587e989f1cfeaa4682e406cbbfbcffd, type: 2}
+  - {fileID: 1213167297916804, guid: a72e4e7ff2542e34da3b1bc417a4a33d, type: 2}
+  - {fileID: 1843333190389968, guid: 0eb5e4d521bf78e4bb8bf3664718442c, type: 2}
+  - {fileID: 1276660450202528, guid: 339feaa48ef63b5488ffc90dd3aebc55, type: 2}
+  - {fileID: 1695592013199948, guid: 062bb751703fc4e4f878af2863d1eed2, type: 2}
+  - {fileID: 1853601895809976, guid: 7c178a5ddd033954787212e3deca3302, type: 2}
+  - {fileID: 1598212045956956, guid: 63f134529edfa4b48b1315f70bb08231, type: 2}
+  - {fileID: 1689407106462114, guid: 4466669a987a36540ab2cd0a70c77dd9, type: 2}
+  - {fileID: 1010309543892014, guid: dd69d85cba91af54c956f791a363431f, type: 2}
+  - {fileID: 1353195545523134, guid: 6a8056a6710a64340b023e27f36f9815, type: 2}
+  SpawnMinDistanceFromCars: 30

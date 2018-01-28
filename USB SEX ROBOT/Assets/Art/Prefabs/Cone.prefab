@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 23415760487380592}
   - component: {fileID: 54597246100973066}
   - component: {fileID: 65502195782840618}
-  - component: {fileID: 82938959164165892}
+  - component: {fileID: 82884663131314584}
+  - component: {fileID: 114461028708046302}
   m_Layer: 0
   m_Name: Cone
   m_TagString: Untagged
@@ -92,7 +93,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1021179504219680}
   serializedVersion: 2
-  m_Mass: 0.1
+  m_Mass: 0.02
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -112,7 +113,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.53868026, y: 0.5515584, z: 0.54389375}
   m_Center: {x: -0.0054032505, y: 0.2757792, z: 0.000000029802322}
---- !u!82 &82938959164165892
+--- !u!82 &82884663131314584
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -121,7 +122,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 61411e32e33b9d849ba1fb8ba6743604, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -192,3 +193,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114461028708046302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021179504219680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a788251473ec60348b8543f4f2aa9596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 61411e32e33b9d849ba1fb8ba6743604, type: 3}
+  - {fileID: 8300000, guid: 777ceae905286cc428d34025a2c1b514, type: 3}
+  - {fileID: 8300000, guid: 207750c801fc1c44492f8c17524dfc9e, type: 3}

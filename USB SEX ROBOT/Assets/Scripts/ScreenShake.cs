@@ -64,7 +64,7 @@ public class ScreenShake : MonoBehaviour
         else
         {
 
-            Debug.Log("stopped shaking");
+            //Debug.Log("stopped shaking");
 
             shaking = false;
 

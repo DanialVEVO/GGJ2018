@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 95566467044252730}
   - component: {fileID: 65083117585260636}
   - component: {fileID: 114948282574478150}
-  - component: {fileID: 82087514906538362}
+  - component: {fileID: 82791618838772366}
   m_Layer: 0
   m_Name: Market
   m_TagString: Untagged
@@ -451,7 +451,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 2, z: 4}
+  m_Size: {x: 5, y: 2, z: 5}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!65 &65234414411805414
 BoxCollider:
@@ -465,7 +465,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 141.13843, y: 196.68576, z: 392.34302}
   m_Center: {x: 0, y: 0, z: 0.00012207031}
---- !u!82 &82087514906538362
+--- !u!82 &82791618838772366
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -474,7 +474,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 480b09a6c0d0ff64abdca48370e4df96, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -574,3 +574,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 100
+  audioClips:
+  - {fileID: 8300000, guid: 480b09a6c0d0ff64abdca48370e4df96, type: 3}

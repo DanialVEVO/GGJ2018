@@ -11,7 +11,10 @@ public class PointSystem : MonoBehaviour {
     GameObject textWolk;
 
     [SerializeField]
-    public PerpDescription suspect = null;
+    GameObject targetSeekMask;
+
+    [SerializeField]
+    public PerpDescription suspect;
 
     [SerializeField]
     float timeBetweenMessages = 10.0f;
@@ -25,6 +28,9 @@ public class PointSystem : MonoBehaviour {
     [SerializeField]
     float totalGameTime = 60.0f;
 
+    [SerializeField]
+    ParticleSystem Coins;
+
     float gameTime = 0.0f;
 
     int budget = 0;
@@ -37,6 +43,8 @@ public class PointSystem : MonoBehaviour {
 
     int randomTextNumber = -1;
 
+    float maxMaskLength = 0.0f;
+
 
 	// Use this for initialization
 	void Start () {
@@ -48,6 +56,11 @@ public class PointSystem : MonoBehaviour {
 
         if (textWolk.GetComponentInChildren<TextMesh>() == null)
             Debug.LogWarning("textWolk doesnt have a TextMesh");
+
+        if (targetSeekMask == null)
+            Debug.LogWarning("no targetSeekMask connected");
+
+        maxMaskLength = targetSeekMask.transform.localScale.z;
 
 
         BudgetChange(startingBudget);
@@ -96,17 +109,38 @@ public class PointSystem : MonoBehaviour {
             textWolk.SetActive(true);
             newStringTimer = timeBetweenMessages + timeMessageVisibility;
             textWolk.GetComponentInChildren<TextMesh>().text = "GOOD JOB! \n you'll get your \n next target soon";
+            Coins.Play();
             suspect = null;
         }
     }
 
-    void trackSuspect()
+    void TrackSuspect()
     {
+        if (suspect == null)
+        {
+            targetSeekMask.transform.localScale = new Vector3(targetSeekMask.transform.localScale.x, targetSeekMask.transform.localScale.y, maxMaskLength);
+            return;
+        }
+
+        
+
+        float maxLength = 100.0f;
+
+        float suspectDistant = Vector3.Distance(transform.position, suspect.GetComponent<Transform>().position);
+
+        if (suspectDistant < maxLength)
+        {
+            targetSeekMask.transform.localScale = new Vector3(targetSeekMask.transform.localScale.x, targetSeekMask.transform.localScale.y, maxMaskLength * (suspectDistant / maxLength));
+        }
 
     }
 
 	// Update is called once per frame
 	void Update () {
+
+        gameTime += Time.deltaTime;
+
+        TrackSuspect();
 
         if (newStringTimer <= 0.0f)
         {

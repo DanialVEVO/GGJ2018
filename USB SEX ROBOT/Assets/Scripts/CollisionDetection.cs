@@ -10,14 +10,13 @@ public class CollisionDetection : MonoBehaviour {
     bool resetMass;
     float time;
     AudioSource breakSound;
+    public AudioClip[] audioClips;
     Rigidbody[] rigidBodies;
-    private ParticleSystem particle;
 
     void Awake()
     {
-       // damageManager = GameObject.Find("DamageManager");
+        // damageManager = GameObject.Find("DamageManager");
         breakSound = GetComponent<AudioSource>();
-        particle = GetComponentInChildren<ParticleSystem>();
     }
 
     // Use this for initialization
@@ -44,29 +43,21 @@ public class CollisionDetection : MonoBehaviour {
     }
 		
 	void OnTriggerEnter(Collider other) {
-
-
-        
         if (other.gameObject.tag == "Car" &! hasBroken)
         {
-            Debug.Log("Recieved");
-            // damageManager.GetComponent<DamageManager>().totalValue -= value;
-            //particle.Play();
-
-            if(GetComponent<AudioSource>() != null)
-                GetComponent<AudioSource>().Play();
-
             hasBroken = true;
-            //breakSound.Play();
+            breakSound.clip = audioClips[UnityEngine.Random.Range(0, audioClips.Length)];
+            breakSound.Play();
             foreach (Rigidbody R in rigidBodies)
             {
                 R.isKinematic = false;
             }
             GetComponent<Collider>().enabled = false;
             
-            
+            if (other.GetComponentInChildren<PointSystem>() != null)
+            {
+                other.GetComponentInChildren<PointSystem>().BudgetChange(-value);
+            } 
         }
     }
 }
-
-

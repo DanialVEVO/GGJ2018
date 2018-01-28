@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4922520392279458}
   - component: {fileID: 65279852499260118}
   - component: {fileID: 114652385819043916}
-  - component: {fileID: 82550781999207748}
+  - component: {fileID: 82119127377959970}
   m_Layer: 0
   m_Name: Billboard4
   m_TagString: Untagged
@@ -799,7 +799,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1999562010475738}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 0.02
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -814,7 +814,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1121634614407284}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 0.02
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -829,7 +829,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1907643500170562}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 0.02
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -844,7 +844,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1993857041266448}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 0.02
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -859,7 +859,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1347719312808870}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 0.02
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -874,7 +874,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1153138204816440}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 0.02
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -889,7 +889,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1436758204889462}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 0.02
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -904,7 +904,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146441018297974}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 0.02
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -919,7 +919,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752090412670800}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 0.02
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -934,7 +934,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1745383168500452}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 0.02
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -1000,8 +1000,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.9, y: 2.73, z: 0.62}
-  m_Center: {x: 0, y: 0, z: -0.01}
+  m_Size: {x: 4.43, y: 2.73, z: 0.8}
+  m_Center: {x: 0, y: 0, z: 0.02}
 --- !u!65 &65339877054573540
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1074,7 +1074,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.05298645, y: 2.5973847, z: 0.049127195}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!82 &82550781999207748
+--- !u!82 &82119127377959970
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1083,7 +1083,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0381ad0b25c3bc04380d95a5d3d3c255, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1166,3 +1166,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 100
+  audioClips:
+  - {fileID: 8300000, guid: 0bfb1c804a1a8d44d82ead79639076dc, type: 3}
+  - {fileID: 8300000, guid: 0381ad0b25c3bc04380d95a5d3d3c255, type: 3}

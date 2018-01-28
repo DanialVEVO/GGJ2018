@@ -31,6 +31,9 @@ public class CarControl : MonoBehaviour {
     [SerializeField]
     Vector2 SteeringWheelClip = new Vector2(-20.0f, 20.0f);
 
+    [SerializeField][Tooltip ("accel, decel, idle, 3x tyres")]
+    AudioClip[] allCarSounds;
+
     Quaternion toRotation = new Quaternion();
     //Vector3 adjustDir = Vector3.zero;
 
@@ -38,11 +41,16 @@ public class CarControl : MonoBehaviour {
 
     float SteeringWheelRotation = 0.0f;
 
+    bool driftSoundReady = true;
+
 
     // Use this for initialization
     void Start () {
 
         toRotation = GetComponent<Rigidbody>().rotation;
+
+        GetComponent<AudioSource>().clip = allCarSounds[2];
+        GetComponent<AudioSource>().Play();
 
     }
 	
@@ -54,12 +62,17 @@ public class CarControl : MonoBehaviour {
 
         Vector3 localVelocity = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
 
-        if (localVelocity.z < 0.2f)
+        //Debug.Log(localVelocity.z);
+
+        if (localVelocity.z < 0.1f)
         {
             TimeNotMovingForward += Time.fixedDeltaTime;
+            
         }
         else if (TimeNotMovingForward != 0.0f)
             TimeNotMovingForward = 0.0f;
+
+        Debug.Log("tijd staat nu op " + TimeNotMovingForward);
 
         //Field of view adjustment for extra sppeeeed.
         //float percentageFOV = GetComponent<Rigidbody>().velocity.magnitude / maxSpeed;
@@ -152,28 +165,78 @@ public class CarControl : MonoBehaviour {
         }
 
         //acceleration
-        if (Input.GetAxis("RightBump") > 0.03f && Input.GetAxis("LeftBump") > 0.03f)
+        if ((Input.GetAxis("RightBump") > 0.03f && Input.GetAxis("LeftBump") > 0.03f) || (Input.GetAxis("RightBump") < 0.03f && Input.GetAxis("LeftBump") < 0.03f))
         {
-            return;
+            if (GetComponent<AudioSource>().clip != allCarSounds[1] && GetComponent<AudioSource>().clip != allCarSounds[2])
+            {
+                
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().clip = allCarSounds[1];
+                GetComponent<AudioSource>().PlayOneShot(allCarSounds[1]);
+            }
+            else if (GetComponent<AudioSource>().clip == allCarSounds[1] && !GetComponent<AudioSource>().isPlaying)
+            {
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().clip = allCarSounds[2];
+                GetComponent<AudioSource>().Play();
+            }
+
+            if (driftSoundReady == true && GetComponent<Rigidbody>().velocity.magnitude > maxBreakSpeed / 2 && Input.GetAxis("RightBump") > 0.03f && Input.GetAxis("LeftBump") > 0.03f)
+            {
+                GetComponent<AudioSource>().PlayOneShot(allCarSounds[4]);
+                driftSoundReady = false;
+            }
         }
         else if (Input.GetAxis("RightBump") > 0 && GetComponent<Rigidbody>().velocity.magnitude <= maxSpeed)
         {
             GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * maxAcceleration * Input.GetAxis("RightBump") * Time.fixedDeltaTime);
+
+            if (GetComponent<AudioSource>().clip != allCarSounds[0])
+            {
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().clip = allCarSounds[0];
+                GetComponent<AudioSource>().Play();
+            }
         }
         else if (Input.GetAxis("LeftBump") > 0)
         {
-            
+
 
             //brake when having forwardspeed, speed at all (to keep sliding)
-            if (localVelocity.z > 0)
+            if (localVelocity.z > 0.1f)
+            {
+                if (driftSoundReady == true && GetComponent<Rigidbody>().velocity.magnitude > maxBreakSpeed/2)
+                {
+                    GetComponent<AudioSource>().PlayOneShot(allCarSounds[4]);
+                    driftSoundReady = false;
+                }
+                /*
+                if (GetComponent<AudioSource>().clip != allCarSounds[4] && GetComponent<AudioSource>().clip != allCarSounds[2])
+                {
+                    GetComponent<AudioSource>().Stop();
+                    GetComponent<AudioSource>().clip = allCarSounds[4];
+                    GetComponent<AudioSource>().PlayOneShot(allCarSounds[4]);
+                }
+                else if (GetComponent<AudioSource>().clip != allCarSounds[2] && !GetComponent<AudioSource>().isPlaying)
+                {
+                    GetComponent<AudioSource>().Stop();
+                    GetComponent<AudioSource>().clip = allCarSounds[2];
+                    GetComponent<AudioSource>().Play();
+                }*/
+
+
+
                 GetComponent<Rigidbody>().AddRelativeForce(-Vector3.forward * maxBreakSpeed * Input.GetAxis("LeftBump") * Time.fixedDeltaTime);
-            else if (TimeNotMovingForward > 0.5f)
+            }
+            else if (TimeNotMovingForward > 0.8f && GetComponent<Rigidbody>().velocity.magnitude <= maxSpeed/2)
             {
                 GetComponent<Rigidbody>().AddRelativeForce(-Vector3.forward * maxAcceleration * Input.GetAxis("LeftBump") * Time.fixedDeltaTime);
             }
 
         }
-            
+
+        if (Input.GetAxis("LeftBump") < 0.05f && driftSoundReady == false)
+            driftSoundReady = true;
 
 
     }

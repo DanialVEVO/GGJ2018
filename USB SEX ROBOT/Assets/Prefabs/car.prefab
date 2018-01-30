@@ -1843,11 +1843,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: e4f2611696731d44bb4e9e8c992811ab, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2198,14 +2198,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d5a5a440a74270546b1999b7ec76c1c3, type: 3}
   - {fileID: 8300000, guid: 69ba303e7b6fcb043b0d4bbcf55aab4c, type: 3}
   - {fileID: 8300000, guid: 9a88ab515e331284ba0e897df89918ad, type: 3}
-  newTransmissionRange: {x: 10, y: 30}
+  newTransmissionRange: {x: 2, y: 10}
+  musicVolume: 0.1
 --- !u!114 &114643442955934146
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1621089546612140}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 784b6447231ebef4e8edcf824ad5dc3e, type: 3}
   m_Name: 
@@ -2216,6 +2217,7 @@ MonoBehaviour:
   coffeeRadio: {fileID: 0}
   radioTransmissions: []
   newTransmissionRange: {x: 10, y: 30}
+  musicVolume: 0.7
 --- !u!114 &114746606453023922
 MonoBehaviour:
   m_ObjectHideFlags: 1

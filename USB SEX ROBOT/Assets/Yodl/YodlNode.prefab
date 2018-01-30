@@ -1,0 +1,867 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1126492776837178}
+  m_IsPrefabParent: 1
+--- !u!1 &1126492776837178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4140129122027460}
+  - component: {fileID: 33284601667995852}
+  - component: {fileID: 65862361781816400}
+  - component: {fileID: 23260914437853220}
+  - component: {fileID: 95920878868025940}
+  - component: {fileID: 114995133859770010}
+  - component: {fileID: 114894145177007218}
+  m_Layer: 5
+  m_Name: YodlNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1134677172216106
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224754547072103248}
+  - component: {fileID: 222581604881574860}
+  - component: {fileID: 114915986902457614}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1859396019549244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224720143911377530}
+  - component: {fileID: 223225213672533782}
+  - component: {fileID: 114038777386013538}
+  - component: {fileID: 114090935121930846}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1891511276656020
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224662393352662946}
+  - component: {fileID: 222004926956749828}
+  - component: {fileID: 114416317445295652}
+  - component: {fileID: 114312899059007430}
+  m_Layer: 5
+  m_Name: TextMessage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4140129122027460
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126492776837178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 224720143911377530}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23260914437853220
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126492776837178}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: e7c6b58d6c4a4b54ca339a9131a6e954, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &33284601667995852
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126492776837178}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65862361781816400
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126492776837178}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95920878868025940
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126492776837178}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 322bfef6ff3f2404f9f33e4e0debbfab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114038777386013538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1859396019549244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 10
+--- !u!114 &114090935121930846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1859396019549244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &114312899059007430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1891511276656020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 0.5, y: 0.4}
+  m_UseGraphicAlpha: 1
+--- !u!114 &114416317445295652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1891511276656020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: d76aebabc04054e45a42837949202aa7, type: 3}
+    m_FontSize: 21
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 158
+    m_Alignment: 7
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: Just a test, might not work?
+--- !u!114 &114894145177007218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126492776837178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735546543671a16479a0ef187809cf36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 5
+--- !u!114 &114915986902457614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134677172216106}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!114 &114995133859770010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126492776837178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eed35381b040c44fa8f60e10ecc0f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createdPost: 
+  createNewPost: 0
+  avatar: []
+  POTUSPortrait: {fileID: 0}
+  GovPortrait: {fileID: 0}
+  SNNPortrait: {fileID: 0}
+  fname:
+  - 'Harold '
+  - 'Rarity '
+  - 'Betsy '
+  - 'Berdy '
+  - 'Bennie '
+  - 'Anton '
+  - 'Michael '
+  - 'Danial '
+  - 'Jordi '
+  - 'Stef '
+  - 'Jan '
+  - 'Mounim '
+  - 'Merry '
+  - 'Marijn '
+  - 'Jeroen '
+  - 'Martin '
+  - 'Hodor '
+  - 'Max '
+  - 'July '
+  - 'Gerda '
+  - 'Ingrid '
+  - 'Uniqua '
+  - 'Ledasha '
+  - 'Diamond '
+  - 'Ruby '
+  - 'Saphire '
+  - 'Keano '
+  - 'Mikkel '
+  - 'Jane '
+  - 'Donald '
+  - 'Saphire '
+  - 'Peter '
+  - 'Trevor '
+  - 'Charlie '
+  - 'Bernie '
+  - 'Kevin '
+  - 'Carl '
+  - 'Jim '
+  - 'Stefan '
+  - 'Johnny '
+  - 'Arnold '
+  - 'Robbie '
+  - 'Maxwell '
+  - 'Gerald '
+  - 'Andy '
+  - 'Jack '
+  - 'Stefano '
+  - 'Will '
+  - 'Ann '
+  - 'Anna '
+  - 'Klaus '
+  - 'Bart '
+  - 'Werner '
+  - Charles
+  - 'Jason '
+  - 'Keith '
+  - 'Matthijs '
+  - 'Mannu '
+  - 'Yorick '
+  - 'Rik '
+  - 'Ilona '
+  - 'Randy '
+  - 'Dastina '
+  - 'Reginald '
+  - 'Denny '
+  - 'Manuel '
+  - 'Reman '
+  - 'Veronica '
+  - 'Nicholas '
+  - 'Daniel '
+  - 'Varis '
+  - 'Bob '
+  - Leslie
+  - 'Carolin '
+  - 'Alex '
+  - 'Ryan '
+  - 'Mila '
+  twitterHandle:
+  - BlackSamurai
+  - DankSteven
+  - AverageArnold
+  - billyBam
+  - joeStar
+  - gregGor
+  - petePoep
+  - killerFiller
+  - pancakehead
+  - antioch
+  - joeman
+  - kiffresh
+  - moumeme
+  - warriorjan
+  - xArcky
+  - darkangel291
+  - tyler777
+  - theStorm
+  - bavariafan
+  - tylerswifter
+  - mrBondJames
+  - monstarr
+  - maanster
+  - henkdevries
+  - kamehameha
+  - gohansama
+  - diowryyyy
+  - ArnoldJames
+  - Gibson
+  - chocolateboy
+  - darkoman
+  - ilama
+  - blommenman
+  - NickLamb
+  - MichelWarrun
+  - AlexCamilleri
+  - DazzleDan
+  - Jedi_Mocro
+  - Twirlbound
+  - Lordbound
+  - PineIsFine
+  - Mvdlaar
+  - ikaros
+  - KojimaKun
+  - FalloutMan69
+  - Skyrimfan21
+  - rockNeverDies
+  - RatchetAudio
+  - punchespears
+  - Vlambe
+  - TomNopper
+  - JohnWicker
+  - JoJoJoStar
+  - memelord
+  - chronenberg
+  - heisenberg
+  - leslieman
+  - white_knight
+  - weeaboom
+  - loliconcert
+  - Superstarrr
+  - PhazerBlazer
+  - Aceria_
+  - NinjaGinja
+  - SamuraiPizzaCat
+  - Blackbird
+  - JimiHendrix
+  - SlashFan211
+  - HanzoMain
+  - GenjiMain
+  - TheRealBestGirl
+  - Gokamehamea
+  - MudaMudaMuda
+  - OraOraOra
+  - queenofblood
+  - 420blazer
+  - cuteboybigboy
+  - chocolateboyyy
+  - chocolategarcon
+  - TaxMaster
+  - Tyker
+  - BikerMan9271
+  - LadyBloodwind
+  - MasterOfDisaster
+  - Sniper777
+  - quickscope666
+  - famousPotato
+  - DUTCHLIONGOD
+  - GodOfGamers
+  - MisterBrostar
+  - Pikablue
+  - RickRollingston
+  - gamergirl1337
+  message:
+  - GOODBYE MY LOVER
+  - OH MY GOD
+  - WHAT A MANIAC
+  - I DON'T WANNA DIE
+  - GOODBYE CRUEL WORLD
+  - BY THE EIGHT DIVINES
+  - NO NO NO
+  - WHAT THE FRICK
+  - AAAAAAAAAH
+  - AAAAAAAAAAAAAAAAAAH
+  - WAAAAAAAAAAAAA
+  - WAAAAARGHH
+  - WOOP
+  - FINALLY THE SWEET RELEASE OF DEATH
+  - I'M TOO YOUNG TO DIE
+  - COPS ARE KILLING EVERYONE
+  - FRACK THE POLICE
+  - THIS CAN'T BE HAPPENING!
+  - LEAVING GOODBYE
+  - RUN FOR YOUR LIVES
+  - RUN RUUUUN
+  - GET OUT OF THE WAY
+  - IT'S A CRAZY COP
+  - THE POLICE HAS GONE ROGUE
+  - WOAH
+  - DEATH CANNOT STOP ME
+  - NEVER SHOULD'VE COME HERE
+  - RRREEEEEEEEEEEEEEEEEEEE
+  - FROCK THIS SHIZNIT
+  - EVERYONE SAID I WAS CRAZY GUESS WHO'S CRAZY NOW
+  - THE RAPTURE IS UPON US
+  - OMG LIKE WHAT'S GOING ON EVEN
+  - IT'S A TERRORIST ATTACK
+  - MOVE DITCH, GET OUT THE WAY
+  - LEARN TO DRIVE, CREEP
+  - WHAT ARE YOU 12
+  - THIS IS DUMB AND STUPID
+  - WAKE ME UP
+  - HELP
+  - HELP HEEEELP
+  - OH NO
+  - I HATE MY LIFE
+  - GOODBYE CRUEL LIFE
+  - DRIVE ON THE ROAD
+  - THIS IS BULLCRAP
+  - I'M GOING TO DIE
+  - CAN'T WAKE UP
+  - I JUST GOT A PROMOTION
+  - MY WIFE IS PREGNANT
+  - GOSH DARNIT
+  - N'WAH
+  - YOU HANZO MAIN
+  - DEJIMA CHAAAAAAN
+  - SENPAI NO
+  - NANI
+  - OH GOLLY
+  - OH GEE WIZ
+  - MAXIMUM DRIFT
+  - DO YOU EVEN DRIFT
+  - CUT MY LIFE INTO PIECES
+  - JUST KILL ME ALREADY
+  - I WANNA DIE
+  - DAMN THOSE IMMIGRANTS
+  - GREAT START TO MY DAY
+  - WHAT A WAY TO DIE
+  - PROPER DRIVING MATE
+  - BABY NO
+  - PLEASE I HAVE KIDS
+  - NOT THE FACE NOT THE FACE
+  - FINALLY DEATH
+  - WHAT A NICE CAR
+  - WATCH IT
+  - I LIKE LIVING THANK YOU VERY MUCH
+  - NO I LIKE MY LIFE
+  - STOP THIS MADNESS
+  - MANIAC
+  - FREAK
+  - ARE YOU CRAZY
+  - YOU ABSOLUTE MADMAN
+  - I NEED MY COFFEE
+  - GO OUTSIDE THEY SAID
+  - I AM NEVER GOING OUTSIDE AGAIN
+  - MY LIFE SUCKS
+  - THE GOVERNMENT IS COMING TO GET ME
+  - BUILD THAT WALL
+  - YOU SUCK AT KILLING PEOPLE
+  - LEARN TO DRIVE
+  - THINK OF THE CHILDREN
+  - OH GOD THE AGONY
+  - I WISH I WAS NEVER BORN
+  - PLEASE DO NOT KILL ME
+  - LOL
+  - HAHA FINALLY DEATH
+  - I WELCOME DEATH
+  - THE SYSTEM IS RIGGED
+  - CHECKING OUT
+  - OMG
+  - ROFLMAO
+  - THIS IS LIT
+  - DAB TO PAY RESPECTS
+  - TERRORISTS TERRORISTS
+  deathMessage:
+  - 'End of an Era: Cats No Longer Favorite Internet Mammal'
+  - 'Protestors Rally: Legalization of Heroine takes Dramerica by storm'
+  - You WON'T BELIEVE these 5 ways of eliminating secularism!
+  - 'A Dark Day in Symerian History: Patroller dies fleeing for <x> miles from Dramericans'
+  hashtag:
+  - DramericaLameAgain
+  - SyriaBestria
+  - RUINED
+  - NeverGiveUp
+  - FuckTheSystem
+  - GoodByeDramerica
+  - NOTGREAT
+  - WEW
+  - LOL
+  - ByeBye
+  - CHECKINGOUT
+  - DestinationAnywhere
+  - FuckThePOTUS
+  - OldPeopleSuck
+  - BlameTheGlobalists
+  - BURNINHELL
+  - Dramericant
+  - KeepOnDreaming
+  - Burnie2020
+  - ToSymeria
+  - BoardTheBoats
+  - FollowTheWave
+  - WaveOfGreatness
+  - DramericanNightmare
+  - WTF
+  - OMG
+  - HOMELESS
+  - AMAZING
+  - SARCASM
+  - nopenopenope
+  - Polidicks
+  - GodPls
+  - GGDramerica
+  - calledit
+  - NewLifeNoProblems
+  lname:
+  - Abdul
+  - Pinky Pie
+  - Dildoking
+  - Assad
+  - Simpson
+  - Cunty
+  - Vaporwave
+  - Watson
+  - White
+  - Ketchum
+  - Dogson
+  - McKenzie
+  - Cupson
+  - Cuckold
+  - de Vries
+  - de Koning
+  - Banksy
+  - Neiman
+  - Botman
+  - Anderson
+  - Bloomberg
+  - Cosner
+  - Smith
+  - de Boer
+  - Smid
+  - Crystal
+  - Maluku
+  - Dutchman
+  - York
+  - Mikkelson
+  - Bertrand
+  - Sweatshop
+  - Jones
+  - Williams
+  - Taylor
+  - Johnson
+  - Walker
+  - de Jong
+  - Jansen
+  - Bakker
+  - de Wit
+  - Kok
+  - Jacobs
+  - Vos
+  - Visser
+  - Fisher
+  - Maas
+  - Post
+  - Kuiper
+  - de Leeuw
+  myHalfPosts:
+  - 'Wow check out this '
+  - 'I cannot believe '
+  - I watched a
+  - 'I''m walking my '
+  - Ugh, I have to make a
+  - 'Why stay '
+  - 'I need some '
+  - 'I hate it when '
+  - 'I''m rooting for my home team the '
+  - 'I''m the man of the '
+  - 'I''m dancing with my '
+  - 'I fell in love with a '
+  - 'Keano scratched his hairy back with his '
+  - 'I kissed a '
+  - 'Never again shall I lick this crazy '
+  - 'I just completed hugging my '
+  - 'Cleaning my '
+  - 'Ha! I won an internet argument against '
+  - 'My fursona is a '
+  - 'Just go this '
+  - 'Only 90''s kids will remember '
+  - 'Like if you want to have sex with a '
+  - 'I just got kicked in the groin by a full-blown '
+  - 'Man, I wanna get shitfaced and hump '
+  - 'I could enjoy some '
+  - 'Just fucked my '
+  POTUSMessage:
+  - This is a disgrace! Fake Dramericans leaving the country! SHAME!
+  - Totally biased reporters are slandering my name - do not trust them!
+  - Ungrateful people are leaving our country! Absolutely UN-DRAMERICAN!
+  - Symeria is WORSE than Dramerica! Don't believe the press! Dramerica First!
+  - We will make our country GREAT AGAIN!
+  mySecondHalfPosts:
+  - ' it''s so crazy'
+  - ' this made me unconfortable'
+  - ' for 12 hours'
+  - ' what a disgrace'
+  - ' I could never be happier'
+  - ' I''m getting too old for this'
+  - ' I feel enligthend'
+  - ' I guess it''s accepted in some cultures...'
+  - ' I''m never drinking again'
+  - ' and I liked it'
+  - ' It''s just not right'
+  - ' I wish I could get a degree in this...'
+  - ' thorough'
+  - ' makes me feel euphoric'
+  - kin
+  - ' I will write a book about this'
+  - ' I wish my life was more exciting'
+  - ' this is why i voet trump!'
+  - ' for every like I will do it again'
+  - ' I wish I could die already'
+  - ' Linkin Park sang about this'
+  mySubjects:
+  - customer
+  - drama
+  - gender
+  - bleep
+  - rain
+  - stepson
+  - television
+  - toothbrush
+  - wasp
+  - activity
+  - aluminium
+  - bottle
+  - deodorant
+  - freeze
+  - South-America
+  - toy
+  - typhoon
+  - yodler
+  - white-supremacist
+  - hockysticks
+  - hammer
+  - white women
+  - crazy boy
+  - Keano
+  - lubed jellyjar
+  - coconut oil
+  - banana
+  - bradwurst
+  - microphone
+  - dildo
+  - Meatswipe
+  - Yodlbirdz
+  - banker
+  - Jeroen's baby
+  - South-African folk singers
+  - nature
+  - spikey apples
+  - My Little Pony hentai doushinji
+  - your moms buttabplog
+  - weird hentai written by O.J. Simpson
+  - Occulus Rift
+  - goats
+  - Pokemon
+  - Pickachu
+  - Global Game Jam 2016
+--- !u!222 &222004926956749828
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1891511276656020}
+--- !u!222 &222581604881574860
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134677172216106}
+--- !u!223 &223225213672533782
+Canvas:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1859396019549244}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 10
+  m_PixelPerfect: 1
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &224662393352662946
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1891511276656020}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4.241996, y: 4.298209, z: 4.241992}
+  m_Children: []
+  m_Father: {fileID: 224754547072103248}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &224720143911377530
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1859396019549244}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.02468855, y: 0.024688538, z: 0.024688538}
+  m_Children:
+  - {fileID: 224754547072103248}
+  m_Father: {fileID: 4140129122027460}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 11.040001, y: 6.880001}
+  m_SizeDelta: {x: 849, y: 462}
+  m_Pivot: {x: 1, y: 1}
+--- !u!224 &224754547072103248
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134677172216106}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.13987273, y: 0.13987282, z: 0.13987282}
+  m_Children:
+  - {fileID: 224662393352662946}
+  m_Father: {fileID: 224720143911377530}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -22.799988, y: -64.7}
+  m_SizeDelta: {x: 0.00001335144, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}

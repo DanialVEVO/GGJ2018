@@ -404,7 +404,6 @@ GameObject:
   - component: {fileID: 114573416147654338}
   - component: {fileID: 82972418771446474}
   - component: {fileID: 208275113947242178}
-  - component: {fileID: 114643442955934146}
   m_Layer: 0
   m_Name: car
   m_TagString: Car
@@ -2201,26 +2200,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9a88ab515e331284ba0e897df89918ad, type: 3}
   newTransmissionRange: {x: 2, y: 10}
   musicVolume: 0.6
-  ccRadioVolume: 0.6
---- !u!114 &114643442955934146
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1621089546612140}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 784b6447231ebef4e8edcf824ad5dc3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioClipIntro: {fileID: 8300000, guid: b7739d1ffa026784e927519cf98b9c40, type: 3}
-  audioClipPart: {fileID: 8300000, guid: 7e14c0e5646bbb540a2b8ccb258a4875, type: 3}
-  audioClipLoop: {fileID: 8300000, guid: 612fb8da2514b9b40b2ef0e6d4179dc6, type: 3}
-  coffeeRadio: {fileID: 0}
-  radioTransmissions: []
-  newTransmissionRange: {x: 10, y: 30}
-  musicVolume: 0.7
   ccRadioVolume: 0.7
+  radioTransmissionVolume: 0.7
 --- !u!114 &114746606453023922
 MonoBehaviour:
   m_ObjectHideFlags: 1

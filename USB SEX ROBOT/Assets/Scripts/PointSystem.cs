@@ -71,6 +71,9 @@ public class PointSystem : MonoBehaviour {
 
 
         BudgetChange(startingBudget);
+        //hack, remove added time because budget was added.
+        totalGameTime -= bonusGameTimeReward;
+
         newStringTimer = 3.0f;
         textWolk.SetActive(false);
 

@@ -24,6 +24,9 @@ public class MusicScript : MonoBehaviour
     [SerializeField]
     float ccRadioVolume = 0.7f;
 
+    [SerializeField]
+    float radioTransmissionVolume = 0.7f;
+
     float timeTillNewTransmission = 0.0f;
 
     // Privates
@@ -64,6 +67,8 @@ public class MusicScript : MonoBehaviour
         coffeeRadioSource.clip = coffeeRadio;
         coffeeRadioSource.volume = 0.0f;
         coffeeRadioSource.Play();
+
+        GetComponent<AudioSource>().volume = radioTransmissionVolume;
     }
 
     void RandomRadioTransmissions()

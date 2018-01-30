@@ -37,7 +37,7 @@ public class PerpDescription : MonoBehaviour
         Color.cyan,
         Color.gray,
         Color.green,
-        Color.magenta,
+        new Color(1.0f, 0.0f, 0.63f),
         Color.red,
         Color.yellow
     };

@@ -17,7 +17,7 @@ public class PointSystem : MonoBehaviour {
     [SerializeField]
     GameObject targetSeekMask;
 
-    [SerializeField]
+    [HideInInspector]
     public PerpDescription suspect;
 
     [SerializeField]
@@ -31,6 +31,9 @@ public class PointSystem : MonoBehaviour {
 
     [SerializeField]
     float totalGameTime = 60.0f;
+
+    [SerializeField]
+    float bonusGameTimeReward = 20.0f;
 
     [SerializeField]
     ParticleSystem Coins;
@@ -117,6 +120,7 @@ public class PointSystem : MonoBehaviour {
             textWolk.SetActive(true);
             newStringTimer = timeBetweenMessages + timeMessageVisibility;
             textWolk.GetComponentInChildren<TextMesh>().text = "GOOD JOB! \n you'll get your \n next target soon";
+            totalGameTime += bonusGameTimeReward;
             Coins.Play();
             suspect = null;
         }

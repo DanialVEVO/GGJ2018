@@ -1843,7 +1843,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e4f2611696731d44bb4e9e8c992811ab, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1925,7 +1925,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.28
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2166,6 +2166,7 @@ MonoBehaviour:
   timeMessageVisibility: 2
   startingBudget: 4000
   totalGameTime: 120
+  bonusGameTimeReward: 20
   Coins: {fileID: 198468941644130290}
 --- !u!114 &114611525392300614
 MonoBehaviour:
@@ -2199,7 +2200,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 69ba303e7b6fcb043b0d4bbcf55aab4c, type: 3}
   - {fileID: 8300000, guid: 9a88ab515e331284ba0e897df89918ad, type: 3}
   newTransmissionRange: {x: 2, y: 10}
-  musicVolume: 0.1
+  musicVolume: 0.6
+  ccRadioVolume: 0.6
 --- !u!114 &114643442955934146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2218,6 +2220,7 @@ MonoBehaviour:
   radioTransmissions: []
   newTransmissionRange: {x: 10, y: 30}
   musicVolume: 0.7
+  ccRadioVolume: 0.7
 --- !u!114 &114746606453023922
 MonoBehaviour:
   m_ObjectHideFlags: 1

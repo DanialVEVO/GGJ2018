@@ -21,6 +21,9 @@ public class MusicScript : MonoBehaviour
     [SerializeField]
     float musicVolume = 0.7f;
 
+    [SerializeField]
+    float ccRadioVolume = 0.7f;
+
     float timeTillNewTransmission = 0.0f;
 
     // Privates
@@ -59,7 +62,8 @@ public class MusicScript : MonoBehaviour
         audioSourceLoop.PlayDelayed(25.040f);
 
         coffeeRadioSource.clip = coffeeRadio;
-        audioSourceIntro.volume = 0.0f;
+        coffeeRadioSource.volume = 0.0f;
+        coffeeRadioSource.Play();
     }
 
     void RandomRadioTransmissions()
@@ -69,7 +73,7 @@ public class MusicScript : MonoBehaviour
             return; 
                 
         int randTrans = Random.Range(0, radioTransmissions.Length);
-        Debug.Log("Play random radio transmission nr. " + randTrans);
+
 
         GetComponent<AudioSource>().PlayOneShot(radioTransmissions[randTrans]);
         timeTillNewTransmission = Random.Range(newTransmissionRange.x, newTransmissionRange.y) + radioTransmissions[randTrans].length;
@@ -77,9 +81,9 @@ public class MusicScript : MonoBehaviour
 
     void ChangeRadio()
     {
-        if (GetComponent<AudioSource>().volume == 0)
+        if (coffeeRadioSource.volume == ccRadioVolume)
         {
-            GetComponent<AudioSource>().volume = 0.0f;
+            coffeeRadioSource.volume = 0.0f;
 
             audioSourceIntro.volume = musicVolume;
             audioSourcePart.volume = musicVolume;
@@ -87,7 +91,7 @@ public class MusicScript : MonoBehaviour
         }
         else
         {
-            GetComponent<AudioSource>().volume = 1.0f;
+            coffeeRadioSource.volume = ccRadioVolume;
 
             audioSourceIntro.volume = 0.0f;
             audioSourcePart.volume = 0.0f;

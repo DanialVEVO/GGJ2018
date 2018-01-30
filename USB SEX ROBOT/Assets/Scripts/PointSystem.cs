@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PointSystem : MonoBehaviour {
 
     [SerializeField]
     TextMesh budgetDisplay;
+
+    [SerializeField]
+    TextMesh timeDisplay;
 
     [SerializeField]
     GameObject textWolk;
@@ -143,6 +147,16 @@ public class PointSystem : MonoBehaviour {
 	void Update () {
 
         gameTime += Time.deltaTime;
+
+         double hurry = totalGameTime - gameTime;
+
+        timeDisplay.text = System.Math.Round(hurry, 2).ToString();
+
+        if (gameTime > totalGameTime)
+        {
+            SceneManager.LoadScene("menu", LoadSceneMode.Single);
+        }
+
 
         TrackSuspect();
 

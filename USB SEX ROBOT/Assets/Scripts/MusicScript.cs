@@ -9,13 +9,28 @@ public class MusicScript : MonoBehaviour
     public AudioClip audioClipPart;
     public AudioClip audioClipLoop;
 
+    public AudioClip coffeeRadio;
+
+    [SerializeField]
+    AudioClip[] radioTransmissions;
+
+    [SerializeField]
+    Vector2 newTransmissionRange = new Vector2(10.0f,30.0f);
+
+    float timeTillNewTransmission = 0.0f;
+
     // Privates
     private AudioSource audioSourceIntro = null;
     private AudioSource audioSourcePart = null;
     private AudioSource audioSourceLoop = null;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
+    {
+        StartMusic();
+    }
+
+    void StartMusic()
     {
         audioSourceIntro = Camera.main.gameObject.AddComponent<AudioSource>();
         audioSourcePart = Camera.main.gameObject.AddComponent<AudioSource>();
@@ -35,9 +50,40 @@ public class MusicScript : MonoBehaviour
         audioSourceLoop.PlayDelayed(25.040f);
     }
 
+    void RandomRadioTransmissions()
+    {
+        AudioClip randTrans = radioTransmissions[1];
+        GetComponent<AudioSource>().PlayOneShot(randTrans);
+        timeTillNewTransmission = Random.Range(newTransmissionRange.x, newTransmissionRange.y);
+    }
+
+    void ChangeRadio()
+    {
+        if (GetComponent<AudioSource>().volume == 0)
+        {
+            GetComponent<AudioSource>().volume = 0.0f;
+
+            audioSourceIntro.volume = 0.7f;
+            audioSourcePart.volume = 0.7f;
+            audioSourceLoop.volume = 0.7f;
+        }
+        else
+        {
+            GetComponent<AudioSource>().Play();
+            
+        }
+    }
+
     // Update is called once per frame
     void Update ()
     {
+        /* if (timeTillNewTransmission < 0.0f)
+             RandomRadioTransmissions();
 
+         timeTillNewTransmission -= Time.deltaTime;
+
+
+         if (Input.GetKeyDown("joystick button 0"))
+             ChangeRadio();*/
     }
 }

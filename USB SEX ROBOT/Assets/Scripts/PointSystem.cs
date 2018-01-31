@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PointSystem : MonoBehaviour {
@@ -161,7 +160,8 @@ public class PointSystem : MonoBehaviour {
 
         if (gameTime > totalGameTime)
         {
-            SceneManager.LoadScene("menu", LoadSceneMode.Single);
+            // Starts Ending Sequence after time has run out, showing score etc.
+            gameObject.GetComponent<GameStateManager>().StartEndSequence();
         }
 
 

@@ -133,6 +133,8 @@ GameObject:
   - component: {fileID: 4964140944959104}
   - component: {fileID: 20387657851170494}
   - component: {fileID: 124853422631402366}
+  - component: {fileID: 95866319733645456}
+  - component: {fileID: 114389611746240314}
   m_Layer: 0
   m_Name: EndCam
   m_TagString: Untagged
@@ -1041,8 +1043,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1621089546612140}
-  m_LocalRotation: {x: -0, y: -0.9976871, z: -0, w: -0.06797431}
-  m_LocalPosition: {x: -2.15, y: 0.7, z: 63.19}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4586620458455418}
@@ -1056,7 +1058,7 @@ Transform:
   - {fileID: 4664098324832598}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -187.795, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4906626447541626
 Transform:
   m_ObjectHideFlags: 1
@@ -1116,13 +1118,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1129973297675976}
-  m_LocalRotation: {x: 0.01429537, y: -0.9698478, z: 0.095861405, w: -0.22361019}
-  m_LocalPosition: {x: -0.19, y: 0.24, z: 1.71}
+  m_LocalRotation: {x: -0.66442686, y: 0.011539748, z: -0.0026636864, w: -0.74725956}
+  m_LocalPosition: {x: 0.242, y: 0.539, z: -0.046}
   m_LocalScale: {x: 1.0018536, y: 1.01113, z: 1.2878892}
   m_Children: []
   m_Father: {fileID: 4783112376519670}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 10.343, y: 153.66101, z: -4.1150002}
+  m_LocalEulerAnglesHint: {x: 83.246, y: -6.6930003, z: -5.5400004}
 --- !u!4 &4971776697110098
 Transform:
   m_ObjectHideFlags: 1
@@ -2188,6 +2190,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95866319733645456
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129973297675976}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 80094e4b161a7f442b565f4cf9ca7b10, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!102 &102415497005272874
 TextMesh:
   serializedVersion: 3
@@ -2340,6 +2359,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yodlNode: {fileID: 1126492776837178, guid: e758b3ddfe381b040a6a65d26deb3c88, type: 2}
+--- !u!114 &114389611746240314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129973297675976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: c825a02c1f7699f4bbce67d076259e46, type: 2}
 --- !u!114 &114395501875993766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2427,7 +2458,9 @@ MonoBehaviour:
   areaFOV: {x: 55, y: 65}
   SteeringWHeel: {fileID: 1232100635692676}
   steeringWheelSpeed: 250
-  SteeringWheelClip: {x: 90, y: -90}
+  SteeringWheelClip: NaN
+  sideLookClip: 30
+  maxLookSpeed: 150
   allCarSounds:
   - {fileID: 8300000, guid: 031dfa428dee08b42a9ffb8c767b6960, type: 3}
   - {fileID: 8300000, guid: 1e2364c31f4c7f7489a5f3ed88222d9f, type: 3}
@@ -2459,8 +2492,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b82e438b926d8d45b1eeeaa1f89f5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCam: {fileID: 20145826844464774}
-  endCam: {fileID: 20387657851170494}
+  playerCam: {fileID: 1973580827347816}
+  endCam: {fileID: 1129973297675976}
+  endScreenCar: {fileID: 100000, guid: 79ddaa5bc60219b4498dca5fbb8cfab7, type: 3}
 --- !u!124 &124271767640790964
 Behaviour:
   m_ObjectHideFlags: 1
